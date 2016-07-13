@@ -1,3 +1,7 @@
+
+
+$("#sub").on('click', function(){
+
 var userLocation = "orlando";
 
 userData = {
@@ -6,8 +10,7 @@ userData = {
 
 
 $.post("/api/data", userData, function(data) {
-	console.log("index data" + data);
+	console.log("indexjs data" + data);
 })
 
-
-console.log("test");
+});
