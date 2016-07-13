@@ -1,7 +1,3 @@
-var data = [
-{
-	city: "sanford"
-}
-];
+var data = [];
 
 module.exports = data;

@@ -15,11 +15,15 @@ module.exports = function(app){
 
 		var userData = req.body;
 
-		console.log(req.body);
-
 		beerData.push(userData);
 
-		console.log(beerData);
+		var city = beerData[0].city
+
+		geocoder.geocode(city, function ( err, data ) {
+			console.log(data.results[0].geometry.location);
+		});
+
+
 
 
 	})
