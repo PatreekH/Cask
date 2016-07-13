@@ -14,3 +14,5 @@ $.post("/api/data", userData, function(data) {
 })
 
 });
+
+$(".main").onepage_scroll();
