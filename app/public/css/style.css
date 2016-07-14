@@ -1,16 +1,29 @@
 
 /* Index page styling */
 
-#map{
-    float: right;
-    width: 50%;
-    height: 50%;
-}
-
 @font-face {
     font-family: Bukhari;
     src: url(fonts/Bukhari_Script.ttf);
 }
+
+/* Font class */
+
+.brand-logo {
+    font-family: Bukhari;
+}
+
+/* Header styling */
+
+.nav-wrapper {
+    background-image: url(images/bkgd_pattern.png);
+    box-shadow: 0px 14px 45px -5px rgba(0,0,0,0.75);
+}
+
+.input-field {
+    margin-top: 2%;
+}
+
+/* Slide 1 (home) */
 
 .firstSec {
     top: 0;
@@ -21,6 +34,8 @@
     background-color: whitesmoke;
 }
 
+/* Slide 2 (survey) */
+
 .secondSec {
     top: 0;
     left: 0;
@@ -29,6 +44,13 @@
     height: 100%;
     background-color: white;
 }
+
+.surveyText{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+/* Slide 3 (brewrey finder) */
 
 .thirdSec {
     top: 0;
@@ -39,6 +61,14 @@
     background-color: red;
 }
 
+#map{
+    float: right;
+    width: 50%;
+    height: 50%;
+}
+
+/* Slide 4 (?) */
+
 .fourthSec {
     top: 0;
     left: 0;
@@ -46,19 +76,6 @@
     width: 100%;
     height: 100%;
     background-color: blue;
-}
-
-.brand-logo {
-    font-family: Bukhari;
-}
-
-.nav-wrapper {
-    background-image: url(images/bkgd_pattern.png);
-    box-shadow: 0px 14px 45px -5px rgba(0,0,0,0.75);
-}
-
-.input-field {
-    margin-top: 2%;
 }
 
 /* Survey page styling */
