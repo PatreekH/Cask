@@ -1,9 +1,13 @@
 $(".main").onepage_scroll();
 
-$("#sub").on('click', function(){
 
+//When a user enters a location and clicks "submit", do the following:
+$("#submitLocation").on('click', function(){
+
+	//grabbing the location the user enters
 	var userLocation = $("#user_location").val();
 
+	//Putting location in an object to access in back-end via API
 	userData = {
 		city: userLocation
 	}
@@ -13,14 +17,14 @@ $("#sub").on('click', function(){
 		console.log("indexjs data" + data);
 	})
 
-/*	populateMap();*/
-
+	//Because I'm not a fan of refreshing pages.
 	return false;
 
 });
 
 
 
+//Google maps API info.
 var laty = 40.9097802;
 var long = -100.1617613;
 var zoom;
