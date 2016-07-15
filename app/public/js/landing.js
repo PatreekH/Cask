@@ -22,13 +22,12 @@ $('#login').on('click', function(){
 			userName: user,
 			password: pass
 		},
-		success: function(text){
-			if (text == "success"){
-				
+		success: function(response){
+			if (response == "invalid"){
+				console.log('login error');
 			}
-			else if(text == "invalid"){
-				
-
+			else {
+				console.log(response);
 			}
 		}
 
