@@ -8,7 +8,7 @@ var url = "http://api.brewerydb.com/v2/?beer/oeGSxs?key=ab12f84ebc125fbbfd15ff21
 module.exports = function(app){
 
 	app.get('/api/data', function(req, res){
-		res.json(beerData)
+		res.json(selectedBreweryData);
 	});
 
 
