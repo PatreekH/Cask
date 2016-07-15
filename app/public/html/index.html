@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<title>Cask</title>
+		<script src="../js/jquery.onepage-scroll.min.js" type="text/javascript"></script>
   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 		<link rel="stylesheet" type="text/css" href="../css/onepage-scroll.css">
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 		<script src="../js/jquery.onepage-scroll.min.js" type="text/javascript"></script>
 
 	</head>
@@ -30,16 +31,354 @@
 	      
 	      </section>
 	      
-	      <section class="secondSec">
-	      	<div class="surveyText">
-	      		<h2>Can't decide which brew you like the most?</h2>
-	      		<h5>Take our survey and get recommended one based on your own personal preferences!</h5>
-	      		<div class="row">
-      				<div class="col s2 alignText">Our advanced algorthem analzyes more than 10,000 types of beer to find the perfect match for your taste buds</div>
-      				<div class="col s2 alignText">Our advanced algorthem analzyes more than 10,000 types of beer to find the perfect match for your taste buds</div>
-      				<div class="col s2 alignText">Our advanced algorthem analzyes more than 10,000 types of beer to find the perfect match for your taste buds</div>
+	      	      <section class="secondSec">
+	      	<h2 class="surveyHead">Can't decide which brew you like the most?...</h2>
+	      	<br>
+	      	<div class="surveyText alignText">
+	      		<h4>Take our survey and get recommended one based on your own personal preferences!</h4>
+	      	</div>
+
+	      	<div class="surveyButton surveyText alignText">
+	      		<a id='takeSurvey' role="button">Click Here </a><span> to take the survey now!</span>
+	      	</div>
+
+	      	<div class="surveyText alignText">
+	      		<div class="row alignText">
+	      			<div class="aboutSurvey">
+      					<div class="col s3 alignText"><h5>How it works</h5>Our advanced algorthem analzyes more than 10,000 types of beer to find the perfect match for your taste buds</div>
+      					<div class="col s3 alignText"><h5>Taking the survey</h5>Our advanced algorthem analzyes more than 10,000 types of beer to find the perfect match for your taste buds</div>
+      					<div class="col s3 alignText"><h5>Your results</h5>Our advanced algorthem analzyes more than 10,000 types of beer to find the perfect match for your taste buds</div>
+      				</div>
 	      		</div>
-	      		<a href="survey.html" class="brand-logo">Click here </a><span>to take the survey now!</span>
+	      	</div>
+
+			<!-- Survey Section -->
+	      	<div id='surveyDiv'>
+
+	      	<input id='exitSurvey' type='button' value='Click here to exit'>
+
+				<div class="container">
+					<h2>Survey Questions</h2>
+
+					<br>
+					<br>
+
+					<div class="rules">
+						<h5>(Strongly disagree)<strong>1 - 5</strong>(Strongly agree)</h5>
+					</div>
+
+				</div>
+
+				<div id="container">
+
+					<div id="box1" class="box">
+						<h4><strong>Question 1</strong></h4>
+						<h4>This is question 1</h4>
+						<select class="q1">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box2" class="box">
+						<h4><strong>Question 2</strong></h4>
+						<h4>This is question 2</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q2">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblockR">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box3" class="box">
+						<h4><strong>Question 3</strong></h4>
+						<h4>This is question 3</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q3">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box4" class="box">
+						<h4><strong>Question 4</strong></h4>
+						<h4>This is question 4</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q4">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+
+					<div id="box5" class="box">
+						<h4><strong>Question 5</strong></h4>
+						<h4>This is question 5</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q5">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box6" class="box">
+						<h4><strong>Question 6</strong></h4>
+						<h4>This is question 6</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q6">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box7" class="box">
+						<h4><strong>Question 7</strong></h4>
+						<h4>This is question 7</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q7">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box8" class="box">
+						<h4><strong>Question 8</strong></h4>
+						<h4>This is question 8</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q8">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box9" class="box">
+						<h4><strong>Question 9</strong></h4>
+						<h4>This is question 9</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q9">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<div class="forwardButtons">
+							<img class="nextQ" role="button" src="../css/nav2.png">
+							<div class="nextQblock">
+								<div class="nextQtext">Next Question</div>
+								<div class="rightBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="lastQ">Last Question</button>
+						</div>
+					</div>
+
+					<div id="box10" class="box">
+						<h4><strong>Question 10</strong></h4>
+						<h4>This is question 10</h4>
+						<div class="backButtons">
+							<img class="backQ" role="button" src="../css/nav1.png">
+							<div class="nextQblockL">
+								<div class="backQtext">Back Question</div>
+								<div class="leftBlock"></div>
+							</div>
+							<br>
+							<br>
+							<button class="firstQ">First Question</button>
+						</div>
+						<select class="q10">
+			  				<option value="1">1</option>
+			  				<option value="2">2</option>
+			  				<option value="3">3</option>
+			  				<option value="4">4</option>
+			  				<option value="5">5</option>
+						</select>
+						<br>
+						<br>
+						<br>
+						<br>
+						<button type="submit" class="submitbtn btn btn-primary" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
+					</div>
+
+				</div>
+
 	      	</div>
 
 	      </section>
@@ -85,7 +424,8 @@
 	      </section>
 	    </div>
 
-
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 		<script src="../js/index.js" type="text/javascript"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1mvi9WJalAJi7wOxXsYjqtwbDU3h6C5s&callback=initMap" async defer></script>
 	</body>
