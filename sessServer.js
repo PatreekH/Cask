@@ -21,7 +21,7 @@ session = require('express-session');
 app.use(session({
     secret: 'cask user',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true
 }));
 
 app.use(bodyParser.json());
@@ -36,14 +36,16 @@ app.use(express.static('app/public'));
 // Authentication and Authorization Middleware
 var auth = function(req, res, next) {
   // verifing that the session properties are valid
-  if (req.session && req.session.admin == true)
+  if (req.session && req.session.saveUninitialized == true){
   // if true the next parameter is invoked and procedes to line 79
     return next();
-  else 
+	}
+  else {
     // send a response to client informing them
     // that they are unauthorized to recive the page they are 
     // requesting without proper credentials
-    return res.sendStatus(401) ;
+    return res.sendStatus(401);
+	}
 };
 
 app.post('/loginInfo', function(req, res){
@@ -54,13 +56,15 @@ app.post('/loginInfo', function(req, res){
 	console.log(userName + '  +  ' + password);
 
 	connection.query(userQuery,[userName, password], function(err, data){
-		console.log(data);
+		
 		if(err) {
 			res.json('invalid');
 			return;
 		}
 		else if(data[0]){
+
 				req.session.saveUninitialized = true;
+
 				userData = {
 					city: data[0].city,
 					favBar: data[0].favBar,
@@ -75,20 +79,8 @@ app.post('/loginInfo', function(req, res){
 			res.json('invalid');
 		}
 			
-		
-		
-	//	else if(data == undefined){
-	//		// happens if data is not retrieved from DB
-	//		// will usually only execute if someone uses a username that doesnt exist
-	//		res.json('invalid');
-	//	}
 	});
 		
-		
-
-
-
-
 });
 
 app.get('/', function(req, res){
