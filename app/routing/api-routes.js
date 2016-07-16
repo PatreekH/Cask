@@ -7,8 +7,11 @@ var url = "http://api.brewerydb.com/v2/?beer/oeGSxs?key=ab12f84ebc125fbbfd15ff21
 
 module.exports = function(app){
 
+
+	var frontEndData = []
+
 	app.get('/api/data', function(req, res){
-		res.json(selectedBreweryData);
+		res.json(frontEndData);
 	});
 
 
@@ -22,6 +25,11 @@ module.exports = function(app){
 			var locationGeometry = data.results[0].geometry.location;
 			var lat = locationGeometry.lat;
 			var long = locationGeometry.lng;
+			var initialMapsCenter = {
+				latitude: lat,
+				longitude: long
+			}
+			frontEndData.push(initialMapsCenter)
 			findBreweries(lat, long)
 
 		});
@@ -34,7 +42,7 @@ module.exports = function(app){
 			var key = "&key=ab12f84ebc125fbbfd15ff211dd304e6&format=json"
 			url += "lat=" + lat;
 			url += "&lng=" + long;
-			url += "&radius=35";
+			url += "&radius=25";
 			url += key;
 
 			request(url, function (error, response, body) {
@@ -54,7 +62,9 @@ module.exports = function(app){
 				  		}
 				  		//Pushing above object to our API for use on front-end.
 				  		beerData.push(selectedBreweryData)
+				  		frontEndData.push(selectedBreweryData);
 				  	}
+				  	res.json(frontEndData);
 				}
 			})
 		}
