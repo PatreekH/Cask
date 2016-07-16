@@ -19,9 +19,9 @@ var connection = mysql.createConnection({
 // express session for user authentication
 session = require('express-session');
 app.use(session({
-    secret: 'no secret',
-    resave: true,
-    saveUninitialized: true
+    secret: 'cask user',
+    resave: false,
+    saveUninitialized: false
 }));
 
 app.use(bodyParser.json());
@@ -30,6 +30,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('app/public'));
+
+
 
 // Authentication and Authorization Middleware
 var auth = function(req, res, next) {
@@ -47,29 +49,42 @@ var auth = function(req, res, next) {
 app.post('/loginInfo', function(req, res){
 	var userName = req.body.userName;
 	var password = req.body.password;
-	var userQuery = 'SELECT * FROM caskUsers WHERE userName = "' + userName + '"'
+	var userQuery = 'SELECT firstName, userEmail, favBeer, favBar, city FROM caskUsers WHERE userName = ? AND userSecret = ?';
 
 	console.log(userName + '  +  ' + password);
 
-	connection.query(userQuery, function(err, data){
-
-		if(data != undefined){
-			// only works if data comes back from DB
-			var userObj = {
-				city: data[0].city,
-				favBar: data[0].favBar,
-				favBeer: data[0].favBeer,
-				firstName: data[0].firstName
-			}
-		console.log('DB ' + data[0].userName + '\n' + data[0].userSecret);
-		res.json(userObj);
+	connection.query(userQuery,[userName, password], function(err, data){
+		console.log(data);
+		if(err) {
+			res.json('invalid');
+			return;
 		}
-		else if(data == undefined){
-			// happens if data is not retrieved from DB
-			// will usually only execute if someone uses a username that doesnt exist
+		else if(data[0]){
+				req.session.saveUninitialized = true;
+				userData = {
+					city: data[0].city,
+					favBar: data[0].favBar,
+					favBeer: data[0].favBeer,
+					firstName: data[0].firstName,
+					userEmail: data[0].userEmail
+				}		
+				req.session.userData = userData;
+				console.log(req.session.userData);
+			}
+		else {
 			res.json('invalid');
 		}
+			
+		
+		
+	//	else if(data == undefined){
+	//		// happens if data is not retrieved from DB
+	//		// will usually only execute if someone uses a username that doesnt exist
+	//		res.json('invalid');
+	//	}
 	});
+		
+		
 
 
 
@@ -80,7 +95,9 @@ app.get('/', function(req, res){
 	res.sendFile(path.join(__dirname + '/app/public/html/landing.html'));
 });
 
-
+app.get('/home', auth, function(req, res){
+	res.sendFile(path.join(__dirname + '/app/public/html/index.html'));
+});
 
 
 
