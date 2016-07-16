@@ -26,7 +26,7 @@ $('#login').on('click', function(){
 			if (response == "invalid"){
 				$('#error-modal').modal('toggle');
 			}
-			else {
+			else if(response == "success"){
 				console.log(response);
 			}
 		}

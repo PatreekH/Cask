@@ -20,8 +20,8 @@ var connection = mysql.createConnection({
 session = require('express-session');
 app.use(session({
     secret: 'cask user',
-    resave: false,
-    saveUninitialized: true
+    resave: true,
+    saveUninitialized: false
 }));
 
 app.use(bodyParser.json());
@@ -35,8 +35,11 @@ app.use(express.static('app/public'));
 
 // Authentication and Authorization Middleware
 var auth = function(req, res, next) {
+	console.log('=============');
+	console.log(req.url);
+	console.log(req.session);
   // verifing that the session properties are valid
-  if (req.session && req.session.saveUninitialized == true){
+  if (req.session && req.session.isAuth == true){
   // if true the next parameter is invoked and procedes to line 79
     return next();
 	}
@@ -52,18 +55,16 @@ app.post('/loginInfo', function(req, res){
 	var userName = req.body.userName;
 	var password = req.body.password;
 	var userQuery = 'SELECT firstName, userEmail, favBeer, favBar, city FROM caskUsers WHERE userName = ? AND userSecret = ?';
-
-	console.log(userName + '  +  ' + password);
-
+	//req.session.isAuth = true;
 	connection.query(userQuery,[userName, password], function(err, data){
-		
 		if(err) {
 			res.json('invalid');
 			return;
 		}
 		else if(data[0]){
 
-				req.session.saveUninitialized = true;
+				req.session.isAuth = true;
+				console.log(req.session);
 
 				userData = {
 					city: data[0].city,
@@ -71,16 +72,18 @@ app.post('/loginInfo', function(req, res){
 					favBeer: data[0].favBeer,
 					firstName: data[0].firstName,
 					userEmail: data[0].userEmail
-				}		
-				req.session.userData = userData;
-				console.log(req.session.userData);
+				}
+
+
+				res.send("success");
 			}
+			
 		else {
 			res.json('invalid');
 		}
 			
 	});
-		
+	
 });
 
 app.get('/', function(req, res){
