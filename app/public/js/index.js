@@ -16,6 +16,10 @@ $("#submitLocation").on('click', function(){
 	$.post("/api/data", userData, function(data) {
 		console.log("indexjs data" + data);
 	})
+    
+    $.get("/api/data", userData, function(data) {
+		console.log(data);
+	})
 
 	//Because I'm not a fan of refreshing pages.
 	return false;
