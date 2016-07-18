@@ -39,9 +39,9 @@ $("#submitLocation").on('click', function(){
 			var breweryDescription = breweryData[i].description;
 			var infoContent = 
 								['<div class="info_content">' + 
-								'<h2>' + nameOfBrewery + '</h2>' +
-								'<h3>' + typeOfBrewery + '</h3>' +
-								'<p>' + breweryDescription + '</p></div>'];
+								'<h2 class="brewery-name">' + nameOfBrewery + '</h2>' +
+								'<h3 class="brewery-type">' + typeOfBrewery + '</h3>' +
+								'<p class="brewery-description">' + breweryDescription + '</p></div>'];
 
 			var newMarker = [nameOfBrewery, markerLat, markerLong];
 			markers.push(newMarker);
