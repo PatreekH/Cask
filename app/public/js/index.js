@@ -15,11 +15,31 @@ $("#submitLocation").on('click', function(){
 
 	//Posting user location input to backend to populate API with nearby breweries.
 	$.post("/api/data", userData, function(data) {
-		console.log("indexjs data" + data);
-	})
-    
-    $.get("/api/data", userData, function(data) {
-		console.log(data);
+		breweryData = data;
+		console.log(breweryData);
+		lat = breweryData[0].latitude;
+		long = breweryData[0].longitude;
+		zoom = 9;
+		numOfBreweries = breweryData.length - 1;
+
+		//Setting markers
+		for (var i = 1; i < breweryData.length; i++) {
+			var markerLat = breweryData[i].latitude;
+			var markerLong = breweryData[i].longitude;
+			var nameOfBrewery = breweryData[i].breweryName;
+			var typeOfBrewery = breweryData[i].typeOfBrewery;
+			var breweryDescription = breweryData[i].description;
+			var infoContent = 
+								['<div class="info_content">' + 
+								'<h2 class="brewery-name">' + nameOfBrewery + '</h2>' +
+								'<h3 class="brewery-type">' + typeOfBrewery + '</h3>' +
+								'<p class="brewery-description">' + breweryDescription + '</p></div>'];
+
+			var newMarker = [nameOfBrewery, markerLat, markerLong];
+			markers.push(newMarker);
+			markerContent.push(infoContent);
+		}
+		initMap();
 	})
 
 	//Because I'm not a fan of refreshing pages.
@@ -62,11 +82,35 @@ $(document).ready(function(){
 	});
 
 	$('.nextQ').mouseover(function() {
-		$('.nextQtext').animate({right: 45 + "%"}, 500);
+		$('.nextQtext').animate({right: 70 + "%"}, 500);
 	});
 
 	$('.nextQ').mouseout(function() {
-		$('.nextQtext').animate({right: -60 + "%"}, 500);
+		$('.nextQtext').animate({right: -200 + "%"}, 500);
+	});
+
+	$('.lastQ').mouseover(function() {
+		$('.lastQtext').animate({right: 70 + "%"}, 500);
+	});
+
+	$('.lastQ').mouseout(function() {
+		$('.lastQtext').animate({right: -190 + "%"}, 500);
+	});
+
+	$('.firstQ').mouseover(function() {
+		$('.firstQtext').animate({left: 70 + "%"}, 500);
+	});
+
+	$('.firstQ').mouseout(function() {
+		$('.firstQtext').animate({left: -170 + "%"}, 500);
+	});
+
+	$('.backQ').mouseover(function() {
+		$('.backQtext').animate({left: 70 + "%"}, 500);
+	});
+
+	$('.backQ').mouseout(function() {
+		$('.backQtext').animate({left: -180 + "%"}, 500);
 	});
 
 	function nextQ(){ 
@@ -84,14 +128,6 @@ $(document).ready(function(){
 	$('.backQ').click(function() {
 		backQ();
 		qCount -= 1;
-	});
-
-	$('.backQ').mouseover(function() {
-		$('.backQtext').animate({left: 50 + "%"}, 500);
-	});
-
-	$('.backQ').mouseout(function() {
-		$('.backQtext').animate({left: -50 + "%"}, 500);
 	});
 
 	function backQ(){ 
