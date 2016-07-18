@@ -11,6 +11,7 @@ $("#submitLocation").on('click', function(){
 	userData = {
 		city: userLocation
 	}
+	var currentUrl = window.location.origin;
 
 	//Posting user location input to backend to populate API with nearby breweries.
 	$.post("/api/data", userData, function(data) {

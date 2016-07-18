@@ -37,6 +37,7 @@ module.exports = function(app){
 			url += "&radius=35";
 			url += key;
 
+
 			request(url, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 				  	var breweryData = JSON.parse(body)
