@@ -1,12 +1,5 @@
 $(".main").onepage_scroll();
 
-var marker;
-
-var markers = [];
-var markerContent = [];
-
-var numOfBreweries = 0;
-
 
 //When a user enters a location and clicks "submit", do the following:
 $("#submitLocation").on('click', function(){
@@ -19,41 +12,12 @@ $("#submitLocation").on('click', function(){
 		city: userLocation
 	}
 
-	var breweryData;
-
 	//Posting user location input to backend to populate API with nearby breweries.
 	$.post("/api/data", userData, function(data) {
-		breweryData = data;
-		console.log(breweryData);
-		lat = breweryData[0].latitude;
-		long = breweryData[0].longitude;
-		zoom = 9;
-		numOfBreweries = breweryData.length - 1;
-
-		//Setting markers
-		for (var i = 1; i < breweryData.length; i++) {
-			var markerLat = breweryData[i].latitude;
-			var markerLong = breweryData[i].longitude;
-			var nameOfBrewery = breweryData[i].breweryName;
-			var typeOfBrewery = breweryData[i].typeOfBrewery;
-			var breweryDescription = breweryData[i].description;
-			var infoContent = 
-								['<div class="info_content">' + 
-								'<h2>' + nameOfBrewery + '</h2>' +
-								'<h3>' + typeOfBrewery + '</h3>' +
-								'<p>' + breweryDescription + '</p></div>'];
-
-			var newMarker = [nameOfBrewery, markerLat, markerLong];
-			markers.push(newMarker);
-			markerContent.push(infoContent);
-		}
-		initMap();
+		console.log("indexjs data" + data);
 	})
 
-    
-
-
-	//Because refreshes make me sad.
+	//Because I'm not a fan of refreshing pages.
 	return false;
 
 });
@@ -61,36 +25,16 @@ $("#submitLocation").on('click', function(){
 
 
 //Google maps API info.
-
-var lat = 40.9097802;
+var laty = 40.9097802;
 var long = -100.1617613;
-var zoom = 4;
+var zoom;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: lat, lng: long},
+        center: {lat: laty, lng: long},
         scrollwheel: false,
-        zoom: zoom
+        zoom: 3
     });
-
-    var infoWindow = new google.maps.InfoWindow(), marker, i;
-
-    for (var i = 0; i < numOfBreweries; i++) {
-    	var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-
-	    marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: markers[i][0]
-        });
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-                infoWindow.setContent(markerContent[i][0]);
-                infoWindow.open(map, marker);
-            }
-        })(marker, i));
-    }
 }
 
 // Survey JS
@@ -113,11 +57,35 @@ $(document).ready(function(){
 	});
 
 	$('.nextQ').mouseover(function() {
-		$('.nextQtext').animate({right: 45 + "%"}, 500);
+		$('.nextQtext').animate({right: 70 + "%"}, 500);
 	});
 
 	$('.nextQ').mouseout(function() {
-		$('.nextQtext').animate({right: -60 + "%"}, 500);
+		$('.nextQtext').animate({right: -200 + "%"}, 500);
+	});
+
+	$('.lastQ').mouseover(function() {
+		$('.lastQtext').animate({right: 70 + "%"}, 500);
+	});
+
+	$('.lastQ').mouseout(function() {
+		$('.lastQtext').animate({right: -190 + "%"}, 500);
+	});
+
+	$('.firstQ').mouseover(function() {
+		$('.firstQtext').animate({left: 70 + "%"}, 500);
+	});
+
+	$('.firstQ').mouseout(function() {
+		$('.firstQtext').animate({left: -170 + "%"}, 500);
+	});
+
+	$('.backQ').mouseover(function() {
+		$('.backQtext').animate({left: 70 + "%"}, 500);
+	});
+
+	$('.backQ').mouseout(function() {
+		$('.backQtext').animate({left: -180 + "%"}, 500);
 	});
 
 	function nextQ(){ 
@@ -135,14 +103,6 @@ $(document).ready(function(){
 	$('.backQ').click(function() {
 		backQ();
 		qCount -= 1;
-	});
-
-	$('.backQ').mouseover(function() {
-		$('.backQtext').animate({left: 50 + "%"}, 500);
-	});
-
-	$('.backQ').mouseout(function() {
-		$('.backQtext').animate({left: -50 + "%"}, 500);
 	});
 
 	function backQ(){ 
