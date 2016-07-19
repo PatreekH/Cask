@@ -5,11 +5,13 @@ CREATE DATABASE caskDB;
 
 USE caskDB;
 
-CREATE TABLE cask-users (
+CREATE TABLE caskUsers (
 
 userID INTEGER(100) AUTO_INCREMENT NOT NULL,
-userName VARCHAR(100) NOT NULL,
-userEmail VARCHAR(100) NOT NULL,
+firstName VARCHAR(20) NOT NULL,
+lastName VARCHAR(20) NOT NULL,
+userName VARCHAR(30) NOT NULL,
+userEmail VARCHAR(30) NOT NULL,
 userSecret VARCHAR(24) NOT NULL,
 favBeer VARCHAR(40) NOT NULL, 
 city VARCHAR(40) NOT NULL,
@@ -18,5 +20,5 @@ PRIMARY KEY(userID)
 
 );
 
-INSERT INTO cask-users (userName, userEmail, userSecret, favBeer, city, favBar)
-VALUES (), (), (), ();
+INSERT INTO caskUsers (firstName, lastName, userName, userEmail, userSecret, favBeer, city, favBar)
+VALUES ("John", "Tracy", "jtracy728", "johnmtracy133@gmail.com", "motocross", "Busch", "Orlando", "BackBooth" );
