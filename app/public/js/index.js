@@ -113,11 +113,35 @@ $(document).ready(function(){
 	});
 
 	$('.nextQ').mouseover(function() {
-		$('.nextQtext').animate({right: 45 + "%"}, 500);
+		$('.nextQtext').animate({right: 70 + "%"}, 500);
 	});
 
 	$('.nextQ').mouseout(function() {
-		$('.nextQtext').animate({right: -60 + "%"}, 500);
+		$('.nextQtext').animate({right: -200 + "%"}, 500);
+	});
+
+	$('.lastQ').mouseover(function() {
+		$('.lastQtext').animate({right: 70 + "%"}, 500);
+	});
+
+	$('.lastQ').mouseout(function() {
+		$('.lastQtext').animate({right: -190 + "%"}, 500);
+	});
+
+	$('.firstQ').mouseover(function() {
+		$('.firstQtext').animate({left: 70 + "%"}, 500);
+	});
+
+	$('.firstQ').mouseout(function() {
+		$('.firstQtext').animate({left: -170 + "%"}, 500);
+	});
+
+	$('.backQ').mouseover(function() {
+		$('.backQtext').animate({left: 70 + "%"}, 500);
+	});
+
+	$('.backQ').mouseout(function() {
+		$('.backQtext').animate({left: -180 + "%"}, 500);
 	});
 
 	function nextQ(){ 
@@ -135,14 +159,6 @@ $(document).ready(function(){
 	$('.backQ').click(function() {
 		backQ();
 		qCount -= 1;
-	});
-
-	$('.backQ').mouseover(function() {
-		$('.backQtext').animate({left: 50 + "%"}, 500);
-	});
-
-	$('.backQ').mouseout(function() {
-		$('.backQtext').animate({left: -50 + "%"}, 500);
 	});
 
 	function backQ(){ 
