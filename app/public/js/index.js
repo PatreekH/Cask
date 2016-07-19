@@ -224,6 +224,14 @@ $('#submit').click(function() {
 	console.log($(".q1").val() + " " + $(".q2").val() + " " + $(".q3").val() + " " + $(".q4").val())
 });
 
+
+//Getting value of each radio input;
+$('#sub1').on('click', function(){
+	var selected = $(".question1:checked").val();
+	console.log(selected);
+	return false;
+})
+
 $(document).ready(function(){
 
 	var currentUrl = window.location.origin;
