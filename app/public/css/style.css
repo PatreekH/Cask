@@ -15,7 +15,7 @@
 /* Header styling */
 
 .nav-wrapper {
-    background-image: url(images/bkgd_pattern.png);
+    /*background-image: url(images/bkgd_pattern.png);*/
     /*box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);*/
 }
 
@@ -35,10 +35,6 @@
 }
 
 /* Slide 2 (survey) */
-
-.color{
-    background-color: #fdd835;
-}
 
 .secondSec {
     top: 0;
@@ -223,11 +219,24 @@ strong{
     margin-right: 10%;
 }
 
+/*.border{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    padding-right: 2%;
+    margin-bottom: 1.5%;
+}
+*/
 
 .backButtons{
     float: left;
-    margin-top: 2%;
     position: relative;
+}
+
+.answers{
+    margin-left: 12.5%;
+    width: 60%;
+    float: left;
 }
 
 .leftBlock{
@@ -250,7 +259,6 @@ strong{
 
 .forwardButtons{
     float: right;
-    margin-top: 2%;
     position: relative;
 }
 
@@ -298,28 +306,4 @@ strong{
 
 #box4{
     left: 350%;
-}
-
-#box5{
-    left: 450%;
-}
-
-#box6{
-    left: 550%;
-}
-
-#box7{
-    left: 650%;
-}
-
-#box8{
-    left: 750%;
-}
-
-#box9{
-    left: 850%;
-}
-
-#box10{
-    left: 950%;
 }

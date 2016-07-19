@@ -147,7 +147,7 @@ $(document).ready(function(){
 
 	function nextQ(){ 
 		$('.nextQtext').animate({right: -60 + "%"}, 500);
-		for (i = 1; i <= 10; i++){
+		for (i = 1; i <= 4; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -164,7 +164,7 @@ $(document).ready(function(){
 
 	function backQ(){ 
 		$('.backQtext').animate({left: -50 + "%"}, 500);
-		for (i = 1; i <= 10; i++){
+		for (i = 1; i <= 4; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -179,7 +179,7 @@ $(document).ready(function(){
 	});
 
 	function firstQ(){ 
-		for (i = 1; i <= 10; i++){
+		for (i = 1; i <= 4; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -196,8 +196,8 @@ $(document).ready(function(){
 	});
 
 	function lastQ(){
-		var qToFinish = 9 - qCount; 
-		for (i = 1; i <= 10; i++){
+		var qToFinish = 3 - qCount; 
+		for (i = 1; i <= 4; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -206,7 +206,7 @@ $(document).ready(function(){
 			$("#box" + i).animate({left: newPos + "%"}, 1750);
 			//console.log("Q" + i + ": " + newPos);
 		}
-		qCount = 9;
+		qCount = 3;
 	}
 
 
@@ -218,6 +218,10 @@ $('#takeSurvey').click(function() {
 
 $('#exitSurvey').click(function() {
     $('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
+});
+
+$('#submit').click(function() {
+	console.log($(".q1").val() + " " + $(".q2").val() + " " + $(".q3").val() + " " + $(".q4").val())
 });
 
 $(document).ready(function(){
