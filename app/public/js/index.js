@@ -1,12 +1,17 @@
 $(".main").onepage_scroll();
 
+//Declaring variables for use in populating google maps API logic
 var marker;
-
 var markers = [];
 var markerContent = [];
-
 var numOfBreweries = 0;
+//Google maps API initMap() function
+var lat = 40.9097802;
+var long = -100.1617613;
+var zoom = 4;
 
+//Declaring variables for use in survey
+var answers = []
 
 //When a user enters a location and clicks "submit", do the following:
 $("#submitLocation").on('click', function(){
@@ -59,14 +64,7 @@ $("#submitLocation").on('click', function(){
 
 });
 
-
-
-//Google maps API info.
-
-var lat = 40.9097802;
-var long = -100.1617613;
-var zoom = 4;
-
+//Function that delcares map and populates it with markers (if there are any)
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: lat, lng: long},
@@ -94,7 +92,7 @@ function initMap() {
     }
 }
 
-// Survey JS
+//Survey logic
 
 $('#takeSurvey').mouseover(function() {
 	$('#takeSurvey').css("color", "white");
@@ -224,13 +222,17 @@ $('#submit').click(function() {
 	console.log($(".q1").val() + " " + $(".q2").val() + " " + $(".q3").val() + " " + $(".q4").val())
 });
 
+//Getting value of each radio input
+	$("#submit").on("click", function(){
+		var question1 = $(".question1:checked").val();
+		var question2 = $(".question2:checked").val();
+		var question3 = $(".question3:checked").val();
+		var question4 = $(".question4:checked").val();
+		answers.push(question1, question2, question3, question4);
+		console.log(answers);
+		return false;
+	})
 
-//Getting value of each radio input;
-$('#sub1').on('click', function(){
-	var selected = $(".question1:checked").val();
-	console.log(selected);
-	return false;
-})
 
 $(document).ready(function(){
 
