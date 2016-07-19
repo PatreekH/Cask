@@ -237,15 +237,18 @@ $(document).ready(function(){
 
 		},
 		success: function(response){
-			if(response == 'success'){
-				$(".welcomeText").html("User")//<-- pull user name from db and add name
+			if(response.success == 'success'){
+				$(".welcomeText").html(response.name);//<-- pull user name from db and add name
 				// add survery link and "Hello, 'user's first name"
 				// also add a logout link!!!!!!!
+
 				console.log('logged in!!!!!');
 
 			}
 			else{
-				$(".welcomeText").html("Visitor!")
+				$(".welcomeText").html("Visitor!");
+				$("#profile-link").remove();
+				$("#logout-link").remove();
 				console.log('not logged in...');
 
 			}

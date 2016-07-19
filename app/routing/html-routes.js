@@ -13,6 +13,20 @@ var connection = mysql.createConnection({
 
 module.exports = function(app){
 
+	// Constructor for user's data
+	function UserInfo(firstName, lastName, city, favBar, favBeer, email, userName) {
+			
+			this.firstName = firstName,
+			this.lastName = lastName,
+			this.city = city,
+			this.favBar = favBeer,
+			this.favBeer = favBeer,
+			this.email = email,
+			this.userName = userName
+
+	};
+	var userData;
+
 		// Authentication and Authorization Middleware
 	var auth = function(req, res, next) {
 		console.log('=============');
@@ -45,14 +59,17 @@ module.exports = function(app){
 
 				req.session.isAuth = true;
 				console.log(req.session);
+				
+				var	city = data[0].city;
+				var	favBar = data[0].favBar;
+				var	favBeer = data[0].favBeer;
+				var	firstName = data[0].firstName;
+				var	lastName = data[0].lastName;
+				var	userEmail = data[0].userEmail;
+				var	userName = data[0].userName;
 
-				userData = {
-					city: data[0].city,
-					favBar: data[0].favBar,
-					favBeer: data[0].favBeer,
-					firstName: data[0].firstName,
-					userEmail: data[0].userEmail
-				}
+				userData = new UserInfo(firstName, lastName, city, favBar, favBeer, userEmail, userName);
+				
 				res.send("success");
 			}
 		else {
@@ -89,12 +106,19 @@ module.exports = function(app){
 	app.post('/userauth', function(req, res){
 
 		if(req.session.isAuth == true){
-			res.json('success');
+			res.json({
+				success: 'success',
+				name: userData.firstName
+			});
 		}
 		else if(!req.session.isAuth){
 			res.json('invalid');
 		}
-	})
+	});
+
+	app.get('/logout', function(req, res){
+		req.session.destroy();
+	});
 
 	app.get('/home', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/html/index.html'));

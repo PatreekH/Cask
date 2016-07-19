@@ -72,7 +72,9 @@ $('#submit-sign').on('click', function() {
 		},
 		success: function (response) {
 			if(response == "success"){
-
+				$('#modal-body').empty();
+				$('#modal-body').html('<h2>Successfully signed up with Cask!</h2>');
+				$('#submit-sign').remove();
 			}
 			else{
 
