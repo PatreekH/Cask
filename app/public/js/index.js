@@ -203,6 +203,7 @@ $(document).ready(function(){
 		success: function(response){
 			if(response == 'success'){
 				// add survery link and "Hello, 'user's first name"
+				// also add a logout link!!!!!!!
 				console.log('logged in!!!!!');
 
 			}
