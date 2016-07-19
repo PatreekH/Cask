@@ -234,13 +234,14 @@ $(document).ready(function(){
 		},
 		success: function(response){
 			if(response == 'success'){
+				$(".welcomeText").html("User")//<-- pull user name from db and add name
 				// add survery link and "Hello, 'user's first name"
 				// also add a logout link!!!!!!!
 				console.log('logged in!!!!!');
 
 			}
 			else{
-
+				$(".welcomeText").html("Visitor!")
 				console.log('not logged in...');
 
 			}

@@ -16,12 +16,14 @@
 		<nav>
 			<div class="navbar-fixed">
 			    <div class="nav-wrapper yellow darken-2">
+			    <div><span>welcome, </span><span class="welcomeText"></span>
 			      <a href="#" class="brand-logo center">Cask</a>
 			      <ul id="nav-mobile" class="right hide-on-med-and-down">
 			        <li><a href="#"><span><b>Home</b></span></a></li>
 			        <li><a href="#"><span><b>Search</b></span></a></li>
 			        <li><a href="#"><span><b>Survey</b></span></a></li>
 			        <li><a href="#"><span><b>Profile</b></span></a></li>
+			        <li><a href="#"><span><b>Log Out</b></span></a></li>
 			      </ul>
 			    </div>
 			</div>
@@ -93,7 +95,15 @@
 
 					<div id="box1" class="box">
 						<h4><strong>Question 1</strong></h4>
-						<h4>This is question 1</h4>
+						<!-- <h4>This is question 1</h4> -->
+						<p class="question">Question 1: What color do you prefer your beer to be?</p>
+						<ul class="answers">
+						<input type="radio" name="q1" value="a" id="q1a"><label for="q1a">1.  Bright as the sun</label><br/>
+						<input type="radio" name="q1" value="b" id="q1b"><label for="q1b">2.  It can be a little hazy</label><br/>
+						<input type="radio" name="q1" value="c" id="q1c"><label for="q1c">3.  I'm indifferent</label><br/>
+						<input type="radio" name="q1" value="d" id="q1d"><label for="q1d">4.  Murky as the St. Johns River</label><br/>
+						<input type="radio" name="q1" value="e" id="q1e"><label for="q1e">5.  Dark as my soul.</label><br/>
+						</ul>
 
 						<div class="forwardButtons">
 							<img class="nextQ" role="button" src="../css/nav2.png">
@@ -114,7 +124,14 @@
 
 					<div id="box2" class="box">
 						<h4><strong>Question 2</strong></h4>
-						<h4>This is question 2</h4>
+						<p class="question">Question 2:  How strong do you like your beverage to be? (ABV)</p>
+						<ul class="answers">
+						<input class="color" type="radio" name="q2" value="a" id="q2a"><label for="q2a">1.  I like to not remember my night after a few sips.</label><br/>
+						<input type="radio" name="q2" value="b" id="q2b"><label for="q2b">2.  My beer should be stronger than a full glass of bourbon.</label><br/>
+						<input type="radio" name="q2" value="c" id="q2c"><label for="q2c">3.  I'm indifferent</label><br/>
+						<input type="radio" name="q2" value="d" id="q2d"><label for="q2d">4.  Just enough to take the edge off!</label><br/>
+						<input type="radio" name="q2" value="e" id="q2e"><label for="q2e">5.  Just toss a lot of fruit juice in my beer and we'll call it a day.</label><br/>
+						</ul>
 
 						<div class="backButtons">
 							<img class="backQ" role="button" src="../css/nav1.png">
@@ -152,7 +169,14 @@
 
 					<div id="box3" class="box">
 						<h4><strong>Question 3</strong></h4>
-						<h4>This is question 3</h4>
+						<p class="question">Question 3:  How bitter do you like your beer to be?  (IBU)</p>
+						<ul class="answers">
+						<input type="radio" name="q3" value="a" id="q3a"><label for="q3a">1.  I eat sour patch kids for breakfast.  Give me all of the hops</label><br/>
+						<input type="radio" name="q3" value="b" id="q3b"><label for="q3b">2.  Freshly squeezed glasses of lemonade are my forte</label><br/>
+						<input type="radio" name="q3" value="c" id="q3c"><label for="q3c">3.  I'm indifferent</label><br/>
+						<input type="radio" name="q3" value="d" id="q3d"><label for="q3d">4. I like my beer to taste like as sweet as a Cosmopolitan</label><br/>
+						<input type="radio" name="q3" value="e" id="q3e"><label for="q3e">5. I'll take some beer with that sugar</label><br/>
+						</ul>
 						<div class="backButtons">
 							<img class="backQ" role="button" src="../css/nav1.png">
 							<div class="nextQblockL">
@@ -185,7 +209,14 @@
 
 					<div id="box4" class="box">
 						<h4><strong>Question 4</strong></h4>
-						<h4>This is question 4</h4>
+						<p class="question">Question 4:  How do you feel about organic beer? (Organic)</p>
+						<ul class="answers">
+						<input type="radio" name="q4" value="a" id="q4a"><label for="q4a">1.  Down with the chemicals!  I love it.</label><br/>
+						<input type="radio" name="q4" value="b" id="q4b"><label for="q4b">2.  I prefer it but I'm flexible</label><br/>
+						<input type="radio" name="q4" value="c" id="q4c"><label for="q4c">3.  I'm indifferent</label><br/>
+						<input type="radio" name="q4" value="d" id="q4d"><label for="q4d">4.  Don't care</label><br/>
+						<input type="radio" name="q4" value="e" id="q4e"><label for="q4e">5.  I hate the environment</label><br/> <!-- <- maybe to strong of wording? -->
+						</ul>
 						<div class="backButtons">
 							<img class="backQ" role="button" src="../css/nav1.png">
 							<div class="nextQblockL">
