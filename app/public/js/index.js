@@ -1,5 +1,12 @@
 $(".main").onepage_scroll();
 
+var marker;
+
+var markers = [];
+var markerContent = [];
+
+var numOfBreweries = 0;
+
 
 //When a user enters a location and clicks "submit", do the following:
 $("#submitLocation").on('click', function(){
@@ -12,6 +19,8 @@ $("#submitLocation").on('click', function(){
 		city: userLocation
 	}
 	var currentUrl = window.location.origin;
+
+	var breweryData;
 
 	//Posting user location input to backend to populate API with nearby breweries.
 	$.post("/api/data", userData, function(data) {
@@ -31,9 +40,9 @@ $("#submitLocation").on('click', function(){
 			var breweryDescription = breweryData[i].description;
 			var infoContent = 
 								['<div class="info_content">' + 
-								'<h2 class="brewery-name">' + nameOfBrewery + '</h2>' +
-								'<h3 class="brewery-type">' + typeOfBrewery + '</h3>' +
-								'<p class="brewery-description">' + breweryDescription + '</p></div>'];
+								'<h2>' + nameOfBrewery + '</h2>' +
+								'<h3>' + typeOfBrewery + '</h3>' +
+								'<p>' + breweryDescription + '</p></div>'];
 
 			var newMarker = [nameOfBrewery, markerLat, markerLong];
 			markers.push(newMarker);
@@ -42,7 +51,10 @@ $("#submitLocation").on('click', function(){
 		initMap();
 	})
 
-	//Because I'm not a fan of refreshing pages.
+    
+
+
+	//Because refreshes make me sad.
 	return false;
 
 });
@@ -50,16 +62,36 @@ $("#submitLocation").on('click', function(){
 
 
 //Google maps API info.
-var laty = 40.9097802;
+
+var lat = 40.9097802;
 var long = -100.1617613;
-var zoom;
+var zoom = 4;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: laty, lng: long},
+        center: {lat: lat, lng: long},
         scrollwheel: false,
-        zoom: 3
+        zoom: zoom
     });
+
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    for (var i = 0; i < numOfBreweries; i++) {
+    	var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+
+	    marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(markerContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+    }
 }
 
 // Survey JS
