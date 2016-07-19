@@ -202,14 +202,14 @@ $(document).ready(function(){
 		},
 		success: function(response){
 			if(response == 'success'){
-
+				// add survery link and "Hello, 'user's first name"
 				console.log('logged in!!!!!');
 
 			}
 			else{
 
 				console.log('not logged in...');
-				
+
 			}
 		}
 
