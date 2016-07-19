@@ -187,3 +187,34 @@ $('#takeSurvey').click(function() {
 $('#exitSurvey').click(function() {
     $('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
 });
+
+$(document).ready(function(){
+
+	var currentUrl = window.location.origin;
+
+	$.ajax({
+
+		method: 'POST',
+		url: currentUrl + '/userauth',
+		data: {
+			test: 'connect to server',
+
+		},
+		success: function(response){
+			if(response == 'success'){
+
+				console.log('logged in!!!!!');
+
+			}
+			else{
+
+				console.log('not logged in...');
+				
+			}
+		}
+
+
+
+	})
+
+});

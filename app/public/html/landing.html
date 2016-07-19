@@ -75,7 +75,7 @@
 		        <input type="text" class="form-control" id="user-login" name="username-login" placeholder="User Name" required>
 		        <input type="password" class="form-control" id="pass-login" name="password-login" placeholder="password" required>
 		 	</form>
-			<button class="btn btn-default" id="login">Login</button>
+			<a href="/home"><button class="btn btn-default" id="login">Login</button></a>
 			<button class="btn btn-default" id="signUp">Sign Up</button>
 			<!-- this button will hit a specific route withing the html-routes file -->
 			</br>
@@ -117,21 +117,24 @@
 		      </div>
 		      <div class="modal-body">
 
-		        <input type="text" id="user-signup" name="user-name-signup" placeholder="User Name" required>
-		        </br>
-		        <input type="text" id="email-signup" name="email" placeholder="Email" required>
-		        </br>
-		        <input type="text" id="favBeer" name="favBeer" placeholder="What's your favorite beer?" required>
-		        </br>
-		        <input type="text" id="city" name="city" placeholder="Your city" required>
-		        </br>
-		        <input type="text" id="favBar" name="favBar" placeholder="What is your favorite bar?" required>
-		        </br>
-		        <input type="password" id="pass-signup"name="password-signup" placeholder="password" required>
+		        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+		        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+
+		        <input type="text" class="form-control" id="userName-signup" name="user-name-signup" placeholder="User Name" required>
+		        
+		        <input type="password" class="form-control" id="pass-signup" name="password-signup" placeholder="password" required>
+		        
+		        <input type="text" class="form-control" id="email-signup" name="email" placeholder="Email" required>
+		        
+		        <input type="text" class="form-control" id="favBeer" name="favBeer" placeholder="What's your favorite beer?" required>
+		        
+		        <input type="text" class="form-control" id="city" name="city" placeholder="Your city" required>
+		        
+		        <input type="text" class="form-control" id="favBar" name="favBar" placeholder="What is your favorite bar?" required>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-		        <button type="button" class="btn btn-primary">Submit</button>
+		        <button type="button" id="submit-sign" class="btn btn-primary">Submit</button>
 		      </div>
     		</div><!-- /.modal-content -->
   		</div><!-- /.modal-dialog -->
