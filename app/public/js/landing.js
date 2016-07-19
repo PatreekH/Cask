@@ -27,7 +27,9 @@ $('#login').on('click', function(){
 				$('#error-modal').modal('toggle');
 			}
 			else if(response == "success"){
+				var url = window.location.origin + '/home';
 				console.log(response);
+				window.location.replace(url);
 			}
 		}
 
@@ -69,7 +71,7 @@ $('#submit-sign').on('click', function() {
 			city: city
 		},
 		success: function (response) {
-			if(response == true){
+			if(response == "success"){
 
 			}
 			else{
