@@ -260,6 +260,7 @@ strong{
 .forwardButtons{
     float: right;
     position: relative;
+    margin-top: -24.20%;
 }
 
 .rightBlock{
@@ -309,5 +310,6 @@ strong{
 }
 
 #options1 {
+    width: 30%;
     margin-left: 43%;
 }
