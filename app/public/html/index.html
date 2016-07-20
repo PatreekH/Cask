@@ -76,13 +76,10 @@
 			<!-- Survey Section -->
 	      	<div id='surveyDiv'>
 
-	      	<button id='exitSurvey'>
-	      		<i class="fa fa-times-circle"></i>
-	      		Click here to exit
-	      	</button>
+	      		<i class="fa fa-times-circle fa-stack-2x" id="exitSurvey"></i>
 
 				<div class="container">
-					<h2>Survey Questions</h2>
+					<h2 id="surveyTitle">Survey Questions</h2>
 
 					<br>
 					<br>
@@ -100,7 +97,7 @@
 						<h4><strong>What color do you prefer your beer to be?</strong></h4>
 
 						<!--Radio buttons for first survey question-->
-						<div id="options1">
+						<div id="options1" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question1" name="group1" value="1" type="radio" id="radio1-1"/>
@@ -146,7 +143,7 @@
 
 					<!--DIV for second survey question-->
 					<div id="box2" class="box">
-						<h4><strong>How strong do you like your beverage to be? (ABV)</strong></h4>
+						<h4><strong>How strong do you like your beverage to be?</strong></h4>
 
 						<div class="backButtons">
 							<img class="backQ" role="button" src="../css/nav1.png">
@@ -166,7 +163,7 @@
 						</div>
 
 						<!--Radio buttons for second survey question-->
-						<div id="options2">
+						<div id="options2" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question2" name="group2" value="1" type="radio" id="radio2-1"/>
@@ -228,7 +225,7 @@
 						</div>
 
 						<!--Radio buttons for third survey question-->
-						<div id="options3">
+						<div id="options3" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question3" name="group1" value="1" type="radio" id="radio3-1"/>
@@ -289,7 +286,7 @@
 						</div>
 
 						<!--Radio buttons for fourth survey question-->
-						<div id="options4">
+						<div id="options4" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question4" name="group1" value="1" type="radio" id="radio4-1"/>
