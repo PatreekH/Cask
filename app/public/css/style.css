@@ -59,7 +59,7 @@
 .surveyButton{
     margin-top: 5%;
     font-size: 35px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 .alignText{
@@ -68,7 +68,6 @@
 
 .aboutSurvey{
     margin-left: 20%;
-    margin-bottom: 7.5%;
 }
 
 #exitSurvey{
@@ -234,9 +233,16 @@ strong{
 }
 
 .answers{
+    position: absolute;
     margin-left: 12.5%;
     width: 60%;
-    float: left;
+/*    float: left;
+    margin-right: 20%;*/
+}
+
+.forwardButtons{
+    float: right;
+    position: relative;
 }
 
 .leftBlock{
@@ -255,12 +261,6 @@ strong{
     z-index: -2;
     left: -180%;
     top: 15%;
-}
-
-.forwardButtons{
-    float: right;
-    position: relative;
-    margin-top: -24.20%;
 }
 
 .rightBlock{
@@ -311,5 +311,5 @@ strong{
 
 #options1 {
     width: 30%;
-    margin-left: 43%;
+    margin-left: 40%;
 }
