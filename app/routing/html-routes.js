@@ -13,13 +13,17 @@ var connection = mysql.createConnection({
 
 module.exports = function(app){
 
+	var exphbs = require('express-handlebars');
+	app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+	app.set('view engine', 'handlebars');
+
 	// Constructor for user's data
 	function UserInfo(firstName, lastName, city, favBar, favBeer, email, userName) {
 			
 			this.firstName = firstName,
 			this.lastName = lastName,
 			this.city = city,
-			this.favBar = favBeer,
+			this.favBar = favBar,
 			this.favBeer = favBeer,
 			this.email = email,
 			this.userName = userName
@@ -48,7 +52,7 @@ module.exports = function(app){
 	app.post('/loginInfo', function(req, res){
 	var userName = req.body.userName;
 	var password = req.body.password;
-	var userQuery = 'SELECT firstName, userEmail, favBeer, favBar, city FROM caskUsers WHERE userName = ? AND userSecret = ?';
+	var userQuery = 'SELECT firstName, lastName, userEmail, favBeer, favBar, city, userName FROM caskUsers WHERE userName = ? AND userSecret = ?';
 	//req.session.isAuth = true;
 	connection.query(userQuery,[userName, password], function(err, data){
 		if(err) {
@@ -114,6 +118,22 @@ module.exports = function(app){
 		else if(!req.session.isAuth){
 			res.json('invalid');
 		}
+	});
+
+	app.get('/profile', function(req, res){
+		console.log(userData.favBar);
+		res.render('user-profile', {
+
+
+			firstName: userData.firstName,
+			lastName: userData.lastName,
+			userName: userData.userName,
+			city: userData.city,
+			email: userData.email,
+			favBeer: userData.favBeer,
+			favBar: userData.favBar,
+
+		});
 	});
 
 	app.get('/logout', function(req, res){
