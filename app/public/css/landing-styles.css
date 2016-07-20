@@ -1,0 +1,42 @@
+	#buttons {
+		
+		text-align: center;
+		padding-right: 3%;
+		padding-left: 3%;
+		padding-bottom: 3%;
+		padding-top: 1%;
+		border-radius: 10px 10px 10px 10px;
+		background-color: #fbc02d;
+
+		-webkit-box-shadow: -3px 0px 42px -4px rgba(0,0,0,0.75);
+		-moz-box-shadow: -3px 0px 42px -4px rgba(0,0,0,0.75);
+		box-shadow: -3px 0px 42px -4px rgba(0,0,0,0.75);
+
+		/* Webkit (Safari/Chrome 10) #FBC02D */ 
+		background-image: -webkit-gradient(radial, center center, 0, center center, 125, color-stop(0, #FFFFFF), color-stop(100, gray));
+
+		/* Webkit (Chrome 11+) */ 
+		background-image: -webkit-radial-gradient(center, ellipse closest-side, #FFFFFF 0%, gray 100%);	}
+	#buttons h2 {
+		margin-top: 0;
+		margin-bottom: 5%;
+		color: black;
+	}
+	.jumbotron {
+		background: none;
+	}
+	#signup-modal input {
+		margin-top: 3%;
+		margin-bottom: 3%;
+	}
+	#buttons input {
+		margin-top: 3%;
+		margin-bottom: 3%;
+	}
+	#buttons button {
+		margin-top: 3%;
+		margin-top: 3%;
+	}
+
+
+	

@@ -252,9 +252,8 @@ $(document).ready(function(){
 		},
 		success: function(response){
 			if(response.success == 'success'){
-				$(".welcomeText").html(response.name);//<-- pull user name from db and add name
-				// add survery link and "Hello, 'user's first name"
-				// also add a logout link!!!!!!!
+				$(".welcomeText").html(response.name);
+
 
 				console.log('logged in!!!!!');
 
