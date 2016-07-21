@@ -31,24 +31,6 @@ module.exports = function(app){
 	};
 	var userData;
 
-		// Authentication and Authorization Middleware
-	var auth = function(req, res, next) {
-		console.log('=============');
-		console.log(req.url);
-		console.log(req.session);
-	  // verifing that the session properties are valid
-	  if (req.session && req.session.isAuth == true){
-	  // if true the next parameter is invoked and procedes to line 79
-	    return next();
-		}
-	  else {
-	    // send a response to client informing them
-	    // that they are unauthorized to recive the page they are 
-	    // requesting without proper credentials
-	    return res.sendStatus(401);
-		}
-	};
-
 	app.post('/loginInfo', function(req, res){
 	var userName = req.body.userName;
 	var password = req.body.password;
@@ -120,8 +102,35 @@ module.exports = function(app){
 		}
 	});
 
+	app.post('/forgot', function(req, res){
+		
+		var theQuery = 'SELECT userSecret, userEmail FROM caskUsers WHERE userName = ?';
+		connection.query(theQuery, [req.body.userName], function(err, data){
+			if(err){
+				res.json('invalid');
+				return;
+			}
+			else if(data[0]){
+			
+				res.json({
+					success: 'success',
+					userPass: data[0].userSecret,
+					userEmail: data[0].userEmail
+				});
+			}
+			else{
+				res.json('invalid');
+			}
+		});
+
+	});
+
+	app.post('/test', function(req, res){
+		console.log(req.body.password + ' ' + req.body.email); // left off here for php mail task
+	});
+
 	app.get('/profile', function(req, res){
-		console.log(userData.favBar);
+		
 		res.render('user-profile', {
 
 
@@ -138,6 +147,7 @@ module.exports = function(app){
 
 	app.get('/logout', function(req, res){
 		req.session.destroy();
+		res.sendFile(path.join(__dirname + '/../public/html/landing.html'));		
 	});
 
 	app.get('/home', function(req, res){
