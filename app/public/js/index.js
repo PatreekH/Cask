@@ -10,9 +10,6 @@ var lat = 40.9097802;
 var long = -100.1617613;
 var zoom = 4;
 
-//Declaring variables for use in survey
-var answers = []
-
 //When a user enters a location and clicks "submit", do the following:
 $("#submitLocation").on('click', function(){
 
@@ -23,7 +20,6 @@ $("#submitLocation").on('click', function(){
 	userData = {
 		city: userLocation
 	}
-	var currentUrl = window.location.origin;
 
 	var breweryData;
 
@@ -218,20 +214,31 @@ $('#exitSurvey').click(function() {
     $('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
 });
 
-$('#submit').click(function() {
-	console.log($(".q1").val() + " " + $(".q2").val() + " " + $(".q3").val() + " " + $(".q4").val())
-});
+//Declaring variables for use in survey
+var answers = []
+//Putting answers into an object to be sent to back-end
+var surveyData = {
+	result: answers
+}
 
 //Getting value of each radio input
-	$("#submit").on("click", function(){
-		var question1 = $(".question1:checked").val();
-		var question2 = $(".question2:checked").val();
-		var question3 = $(".question3:checked").val();
-		var question4 = $(".question4:checked").val();
-		answers.push(question1, question2, question3, question4);
-		console.log(answers);
-		return false;
+$("#submit").on("click", function(){
+	var question1 = $(".question1:checked").val();
+	var question2 = $(".question2:checked").val();
+	var question3 = $(".question3:checked").val();
+	var question4 = $(".question4:checked").val();
+	answers.push(question1, question2, question3, question4);
+	console.log(answers);
+
+	$.post("/api/survey", surveyData, function(data) {
+	console.log(data)
+
 	})
+	$('#modal1').openModal();
+
+	return false;
+})
+
 
 
 $(document).ready(function(){
