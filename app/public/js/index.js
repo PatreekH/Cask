@@ -105,6 +105,15 @@ $('#takeSurvey').mouseout(function() {
 // Logic for off page survey div
 $(document).ready(function(){
 
+/*window.onload = function(){
+	setTimeout(function(){
+		$(".indexLogo").fadeIn(1000);
+	}, 6750);
+};*/
+
+
+
+
 // Current question set to 0
 	var qCount = 0;
 
@@ -221,19 +230,20 @@ $(document).ready(function(){
 		qCount = 3;
 	}
 
+	$('#takeSurvey').click(function() {
+	    $('#surveyDiv').animate({'marginLeft' : 0 + "%"}, 750);
+	});
 
-});
+	$('#exitSurvey').click(function() {
+		if (confirm("Are you sure you want to exit? Exiting the survey will reset your current answers") == true) {
+			firstQ();
+			$('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
+	    } else {
+	        console.log("Did not exit");
+	    }
+	});
 
-$('#takeSurvey').click(function() {
-    $('#surveyDiv').animate({'marginLeft' : 0 + "%"}, 750);
-});
 
-$('#exitSurvey').click(function() {
-	if (confirm("Are you sure you want to exit? Exiting the survey will reset your current answers") == true) {
-		$('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
-    } else {
-        console.log("Did not exit");
-    }
 });
 
 $('#submit').click(function() {
