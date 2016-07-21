@@ -215,7 +215,11 @@ $('#takeSurvey').click(function() {
 });
 
 $('#exitSurvey').click(function() {
-    $('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
+	if (confirm("Are you sure you want to exit? Exiting the survey will reset your current answers") == true) {
+		$('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
+    } else {
+        console.log("Did not exit");
+    }
 });
 
 $('#submit').click(function() {
