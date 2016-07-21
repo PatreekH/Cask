@@ -14,6 +14,11 @@
 
 /* Header styling */
 
+.navbg{
+    background-image: url(fresh-snow.png);
+    background-color: grey;
+}
+
 .nav-wrapper {
     /*background-image: url(images/bkgd_pattern.png);*/
     /*box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);*/
@@ -31,8 +36,53 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: white;
+   /* background-color: white;*/
+/*    background-image: url(landingbg2.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;*/
 }
+
+/*@media (max-width: 951px){
+    .firstSec{
+        background-size: 150%;
+    }
+}*/
+
+    /*Slide 1 background*/
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+    .fullscreen-bg {
+        background: url('http://dev2.slicejack.com/fullscreen-video-demo/img/videoframe.jpg') center center / cover no-repeat;
+    }
+
+    .fullscreen-bg__video {
+        display: none;
+    }
+}
+
 
 /* Slide 2 (survey) */
 
@@ -111,7 +161,7 @@
 #map {
     -webkit-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);;
+    box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     float: right;
     margin-right: 5%;
     margin-top: 15%;
@@ -128,29 +178,27 @@
     float: left;
 }
 
-/* Slide 4 (?) */
-
-.fourthSec {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #f9a825;
-}
-
-/* Slide 5 */
-
-.fifthSec {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #f57f17;
-}
-
 /* Survey page styling */
+
+#box1 label::after {
+    background-color: #fbc02d;
+    border: #fbc02d 1px;
+}
+
+#box2 label::after {
+    background-color: #fbc02d;
+    border: #fbc02d 1px;
+}
+
+#box3 label::after {
+    background-color: #fbc02d;
+    border: #fbc02d 1px;
+}
+
+#box4 label::after {
+    background-color: #fbc02d;
+    border: #fbc02d 1px;
+}
 
 strong{
     font-size: 35px;
