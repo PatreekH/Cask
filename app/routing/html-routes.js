@@ -102,8 +102,17 @@ module.exports = function(app){
 		}
 	});
 
+	app.post('/forgot', function(req, res){
+		console.log("this happen?");
+		var theQuery = 'SELECT userSecret FROM caskUsers WHERE userName = ?';
+		connection.query(theQuery, [req.body.userName], function(err, data){
+			console.log(data[0].userSecret);
+		});
+
+	});
+
 	app.get('/profile', function(req, res){
-		console.log(userData.favBar);
+		
 		res.render('user-profile', {
 
 
