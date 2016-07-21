@@ -111,14 +111,6 @@ $('#submit-forgot').on('click', function(){
 				var password = response.userPass;
 				var email = response.userEmail;
 				$('#submit-forgot').remove();
-				$.ajax({
-					method: 'POST',
-					url: currentUrl + '/test',
-					data: {
-						password: password,
-						email: email 
-					}
-				})
 			}
 			else if(response == 'invalid'){
 				console.log('this is not a valid username');
