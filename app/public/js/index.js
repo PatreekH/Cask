@@ -92,57 +92,63 @@ function initMap() {
     }
 }
 
-//Survey logic
+// Survey logic
 
+// Flash black/white action for "Click me" button on take survey page
 $('#takeSurvey').mouseover(function() {
 	$('#takeSurvey').css("color", "white");
 });
-
 $('#takeSurvey').mouseout(function() {
 	$('#takeSurvey').css("color", "black");
 });
 
+// Logic for off page survey div
 $(document).ready(function(){
 
+// Current question set to 0
 	var qCount = 0;
 
+// All animation functions for survey navigation
+	
+	// Next Question
+	$('.nextQ').mouseover(function() {
+		$('.nextQtext').animate({right: 70 + "%"}, 500);
+	});
+	$('.nextQ').mouseout(function() {
+		$('.nextQtext').animate({right: -200 + "%"}, 500);
+	});
+
+	// Go to Last Question
+	$('.lastQ').mouseover(function() {
+		$('.lastQtext').animate({right: 70 + "%"}, 500);
+	});
+	$('.lastQ').mouseout(function() {
+		$('.lastQtext').animate({right: -190 + "%"}, 500);
+	});
+
+	// Previous Question
+	$('.backQ').mouseover(function() {
+		$('.backQtext').animate({left: 70 + "%"}, 500);
+	});
+	$('.backQ').mouseout(function() {
+		$('.backQtext').animate({left: -180 + "%"}, 500);
+	});
+
+	// Go to First Question
+	$('.firstQ').mouseover(function() {
+		$('.firstQtext').animate({left: 70 + "%"}, 500);
+	});
+	$('.firstQ').mouseout(function() {
+		$('.firstQtext').animate({left: -170 + "%"}, 500);
+	});
+
+	// Runs nextQ function and adds 1 to qCount on next question click
 	$('.nextQ').click(function() {
 		nextQ();
 		qCount += 1;
 	});
 
-	$('.nextQ').mouseover(function() {
-		$('.nextQtext').animate({right: 70 + "%"}, 500);
-	});
-
-	$('.nextQ').mouseout(function() {
-		$('.nextQtext').animate({right: -200 + "%"}, 500);
-	});
-
-	$('.lastQ').mouseover(function() {
-		$('.lastQtext').animate({right: 70 + "%"}, 500);
-	});
-
-	$('.lastQ').mouseout(function() {
-		$('.lastQtext').animate({right: -190 + "%"}, 500);
-	});
-
-	$('.firstQ').mouseover(function() {
-		$('.firstQtext').animate({left: 70 + "%"}, 500);
-	});
-
-	$('.firstQ').mouseout(function() {
-		$('.firstQtext').animate({left: -170 + "%"}, 500);
-	});
-
-	$('.backQ').mouseover(function() {
-		$('.backQtext').animate({left: 70 + "%"}, 500);
-	});
-
-	$('.backQ').mouseout(function() {
-		$('.backQtext').animate({left: -180 + "%"}, 500);
-	});
-
+	// Moves all question divs 100% to the right, pushing the current div on screen to the left
 	function nextQ(){ 
 		$('.nextQtext').animate({right: -60 + "%"}, 500);
 		for (i = 1; i <= 4; i++){
@@ -155,11 +161,13 @@ $(document).ready(function(){
 		}
 	}
 
+	// Runs backQ function and subtracts 1 from qCount on back question click
 	$('.backQ').click(function() {
 		backQ();
 		qCount -= 1;
 	});
 
+	// Moves all question divs 100% to the left, pushing the current div on screen to the right
 	function backQ(){ 
 		$('.backQtext').animate({left: -50 + "%"}, 500);
 		for (i = 1; i <= 4; i++){
@@ -172,10 +180,12 @@ $(document).ready(function(){
 		}
 	}
 
+	// Runs firstQ function on first question click
 	$('.firstQ').click(function() {
 		firstQ();
 	});
 
+	// Moves all question divs 100% to the right as many times as the current qCount, sets qCount to 0 after
 	function firstQ(){ 
 		for (i = 1; i <= 4; i++){
 			var windowSize = $(window).width();
@@ -189,10 +199,14 @@ $(document).ready(function(){
 		qCount = 0;
 	}
 
+	// Runs firstQ function on last question click
 	$('.lastQ').click(function() {
 		lastQ();
 	});
 
+	// Subtracts current question from total questions to make qToFinish var
+	// Moves all question divs 100% to the left as many times as qToFinish total
+	// Sets qCount to 3
 	function lastQ(){
 		var qToFinish = 3 - qCount; 
 		for (i = 1; i <= 4; i++){
