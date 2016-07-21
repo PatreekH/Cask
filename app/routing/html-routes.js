@@ -103,12 +103,30 @@ module.exports = function(app){
 	});
 
 	app.post('/forgot', function(req, res){
-		console.log("this happen?");
-		var theQuery = 'SELECT userSecret FROM caskUsers WHERE userName = ?';
+		
+		var theQuery = 'SELECT userSecret, userEmail FROM caskUsers WHERE userName = ?';
 		connection.query(theQuery, [req.body.userName], function(err, data){
-			console.log(data[0].userSecret);
+			if(err){
+				res.json('invalid');
+				return;
+			}
+			else if(data[0]){
+			
+				res.json({
+					success: 'success',
+					userPass: data[0].userSecret,
+					userEmail: data[0].userEmail
+				});
+			}
+			else{
+				res.json('invalid');
+			}
 		});
 
+	});
+
+	app.post('/test', function(req, res){
+		console.log(req.body.password + ' ' + req.body.email); // left off here for php mail task
 	});
 
 	app.get('/profile', function(req, res){

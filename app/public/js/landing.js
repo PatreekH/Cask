@@ -107,7 +107,22 @@ $('#submit-forgot').on('click', function(){
 			userName : forgetfull
 		},
 		success: function(response){
-			if()
+			if(response.success == 'success'){
+				var password = response.userPass;
+				var email = response.userEmail;
+				$('#submit-forgot').remove();
+				$.ajax({
+					method: 'POST',
+					url: currentUrl + '/test',
+					data: {
+						password: password,
+						email: email 
+					}
+				})
+			}
+			else if(response == 'invalid'){
+				console.log('this is not a valid username');
+			}
 		}
 	})
 })
