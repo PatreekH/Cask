@@ -15,10 +15,11 @@
 	</head>
 
 	<body>
+
 		<nav>
 			<div class="navbar-fixed">
-			    <div class="nav-wrapper grey">
-			    <div><span>welcome, </span><span class="welcomeText"></span>
+			    <div class="nav-wrapper navbg">
+			    <div><b><span class="welcome">welcome, </span><span class="welcomeText"></span></b>
 			      <a href="#" class="brand-logo center">Cask</a>
 			      <ul id="nav-mobile" class="right hide-on-med-and-down">
 			        <li><a href="#"><span><b>Home</b></span></a></li>
@@ -33,11 +34,21 @@
 
 	    <div class="main">
 	      <section class="firstSec">
+
+		    <div class="fullscreen-bg">
+			    <video loop muted autoplay poster="" class="fullscreen-bg__video">
+			        <source src="../css/homebg.mp4" type="video/mp4">
+			    </video>
+			</div>
+
+			<div class="indexLogo">Cask Logo</div>
+	      
+	      	<div class="aboutUs"><p>About us</p></div>
 	      	
 	      
 	      </section>
 	      
-	      	      <section class="secondSec">
+	      <section class="secondSec">
 	      	<h2 class="surveyHead">Can't decide which brew you like the most?...</h2>
 	      	<br>
 	      	<div class="surveyText alignText">
@@ -76,13 +87,11 @@
 			<!-- Survey Section -->
 	      	<div id='surveyDiv'>
 
-	      	<button id='exitSurvey'>
-	      		<i class="fa fa-times-circle"></i>
-	      		Click here to exit
-	      	</button>
+	      		<div id="exitSurveyColor"></div>
+	      		<i class="fa fa-times-circle fa-stack-2x" id="exitSurvey"></i>
 
 				<div class="container">
-					<h2>Survey Questions</h2>
+					<h2 id="surveyTitle">Survey Questions</h2>
 
 					<br>
 					<br>
@@ -93,34 +102,34 @@
 
 				</div>
 
-				<div id="container">
+				<div id="container" class="surveyLane">
 
 					<!--DIV for first survey question-->
 					<div id="box1" class="box">
 						<h4><strong>What color do you prefer your beer to be?</strong></h4>
 
 						<!--Radio buttons for first survey question-->
-						<div id="options1">
+						<div id="options1" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question1" name="group1" value="1" type="radio" id="radio1-1"/>
-						      <label for="radio1-1">Bright as the sun.</label>
+						      <label class="qText" for="radio1-1">Bright as the sun.</label>
 						    </p>
 						    <p>
 						      <input class="question1" name="group1" value="2" type="radio" id="radio1-2"/>
-						      <label for="radio1-2">It can be a little hazy.</label>
+						      <label class="qText" for="radio1-2">It can be a little hazy.</label>
 						    </p>
 						    <p>
 						      <input class="question1" name="group1" value="3" type="radio" id="radio1-3"/>
-						      <label for="radio1-3">I'm indifferent</label>
+						      <label class="qText" for="radio1-3">I'm indifferent</label>
 						    </p>
 						      <p>
 						      <input class="question1" name="group1" value="4" type="radio" id="radio1-4"/>
-						      <label for="radio1-4">Murky as the St. Johns River.</label>
+						      <label class="qText" for="radio1-4">Murky as the St. Johns River.</label>
 						    </p>
 						    <p>
 						      <input class="question1" name="group1" value="5" type="radio" id="radio1-5"/>
-						      <label for="radio1-5">Dark as my soul.</label>
+						      <label class="qText" for="radio1-5">Dark as my soul.</label>
 						    </p>
 						  </form>
 						</div>
@@ -130,7 +139,7 @@
 						<div class="forwardButtons">
 							<img class="nextQ" role="button" src="../css/nav2.png">
 							<div class="nextQblock">
-								<div class="nextQtext">Next Question</div>
+								<div class="nextQtext">Next Question    </div>
 								<div class="rightBlock"></div>
 							</div>
 							<br>
@@ -146,7 +155,7 @@
 
 					<!--DIV for second survey question-->
 					<div id="box2" class="box">
-						<h4><strong>How strong do you like your beverage to be? (ABV)</strong></h4>
+						<h4><strong>How strong do you like your beverage to be?</strong></h4>
 
 						<div class="backButtons">
 							<img class="backQ" role="button" src="../css/nav1.png">
@@ -166,27 +175,27 @@
 						</div>
 
 						<!--Radio buttons for second survey question-->
-						<div id="options2">
+						<div id="options2" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question2" name="group2" value="1" type="radio" id="radio2-1"/>
-						      <label for="radio2-1">I like to not remember my night after a few sips.</label>
+						      <label class="qText" for="radio2-1">I like to not remember my night after a few sips.</label>
 						    </p>
 						    <p>
 						      <input class="question2" name="group2" value="2" type="radio" id="radio2-2"/>
-						      <label for="radio2-2">My beer should be stronger than a full glass of bourbon.</label>
+						      <label class="qText" for="radio2-2">My beer should be stronger than a full glass of bourbon.</label>
 						    </p>
 						    <p>
 						      <input class="question2" name="group2" value="3" type="radio" id="radio2-3"/>
-						      <label for="radio2-3">I'm indifferent</label>
+						      <label class="qText" for="radio2-3">I'm indifferent</label>
 						    </p>
 						      <p>
 						      <input class="question2" name="group2" value="4" type="radio" id="radio2-4"/>
-						      <label for="radio2-4">Just enough to take the edge off!</label>
+						      <label class="qText" for="radio2-4">Just enough to take the edge off!</label>
 						    </p>
 						    <p>
 						      <input class="question2" name="group2" value="5" type="radio" id="radio2-5"/>
-						      <label for="radio2-5">Just toss a lot of fruit juice in my beer and we'll call it a day.</label>
+						      <label class="qText" for="radio2-5">Just toss a lot of fruit juice in my beer and we'll call it a day.</label>
 						    </p>
 						  </form>
 						</div>
@@ -228,27 +237,27 @@
 						</div>
 
 						<!--Radio buttons for third survey question-->
-						<div id="options3">
+						<div id="options3" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question3" name="group1" value="1" type="radio" id="radio3-1"/>
-						      <label for="radio3-1">I eat sour patch kids for breakfast.  Give me all of the hops.</label>
+						      <label class="qText" for="radio3-1">I eat sour patch kids for breakfast.  Give me all of the hops.</label>
 						    </p>
 						    <p>
 						      <input class="question3" name="group1" value="2" type="radio" id="radio3-2"/>
-						      <label for="radio3-2">Freshly squeezed glasses of lemonade are my forte.</label>
+						      <label class="qText" for="radio3-2">Freshly squeezed glasses of lemonade are my forte.</label>
 						    </p>
 						    <p>
 						      <input class="question3" name="group1" value="3" type="radio" id="radio3-3"/>
-						      <label for="radio3-3">I'm indifferent</label>
+						      <label class="qText" for="radio3-3">I'm indifferent</label>
 						    </p>
 						      <p>
 						      <input class="question3" name="group1" value="4" type="radio" id="radio3-4"/>
-						      <label for="radio3-4">I like my beer to taste like as sweet as a Cosmopolitan.</label>
+						      <label class="qText" for="radio3-4">I like my beer to taste like as sweet as a Cosmopolitan.</label>
 						    </p>
 						    <p>
 						      <input class="question3" name="group1" value="5" type="radio" id="radio3-5"/>
-						      <label for="radio3-5">I don't like hops at all.  No thanks.</label>
+						      <label class="qText" for="radio3-5">I don't like hops at all.  No thanks.</label>
 						    </p>
 						  </form>
 						</div>
@@ -289,27 +298,27 @@
 						</div>
 
 						<!--Radio buttons for fourth survey question-->
-						<div id="options4">
+						<div id="options4" class="answers">
 						  <form action="#">
 						    <p>
 						      <input class="question4" name="group1" value="1" type="radio" id="radio4-1"/>
-						      <label for="radio4-1">Down with the chemicals!  I love it.</label>
+						      <label class="qText" for="radio4-1">Down with the chemicals!  I love it.</label>
 						    </p>
 						    <p>
 						      <input class="question4" name="group1" value="2" type="radio" id="radio4-2"/>
-						      <label for="radio4-2">I prefer it but I'm flexible.</label>
+						      <label class="qText" for="radio4-2">I prefer it but I'm flexible.</label>
 						    </p>
 						    <p>
 						      <input class="question4" name="group1" value="3" type="radio" id="radio4-3"/>
-						      <label for="radio4-3">I'm indifferent</label>
+						      <label class="qText" for="radio4-3">I'm indifferent</label>
 						    </p>
 						      <p>
 						      <input class="question4" name="group1" value="4" type="radio" id="radio4-4"/>
-						      <label for="radio4-4">I don't care.</label>
+						      <label class="qText" for="radio4-4">I don't care.</label>
 						    </p>
 						    <p>
 						      <input class="question4" name="group1" value="5" type="radio" id="radio4-5"/>
-						      <label for="radio4-5">I hate the environment.</label>
+						      <label class="qText" for="radio4-5">I hate the environment.</label>
 						    </p>
 						  </form>
 						</div>

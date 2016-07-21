@@ -14,25 +14,93 @@
 
 /* Header styling */
 
+.navbg{
+    background-image: url(fresh-snow.png);
+    background-color: grey;
+    box-shadow: 0px 0px 0px 0px;
+    border-bottom: 5px solid #fbc02d;
+}
+
 .nav-wrapper {
     /*background-image: url(images/bkgd_pattern.png);*/
     /*box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);*/
 }
 
-.input-field {
-    margin-top: 2%;
+.welcome{
+    margin-left: 2%;
 }
 
 /* Slide 1 (home) */
 
 .firstSec {
+    background-color: white;
     top: 0;
     left: 0;
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: white;
 }
+
+.indexLogo {
+    opacity: 0.75;
+    font-family: "Poor Richard", serif;
+    color: black;
+    font-size: 50px;
+    position: relative;
+    top: 15%;
+    left: 60%;
+    right: 0;
+    bottom: 0;
+}
+
+.aboutUs {
+    opacity: 0.75;
+    font-family: "Poor Richard", serif;
+    color: black;
+    font-size: 30px;
+    position: relative;
+    top: 25%;
+    left: 63%;
+    right: 0;
+    bottom: 0;}
+
+
+/* Slide 1 background*/
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    /*opacity: 0.5;*/
+    top: 49%;
+    left: 3%;
+    width: 100%;
+    height: 100%;
+/*    min-width: 100%;*/
+    min-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+    .fullscreen-bg {
+        /*background: url(add video pic here) center center / cover no-repeat;*/
+    }
+
+    .fullscreen-bg__video {
+        display: none;
+    }
+}
+
 
 /* Slide 2 (survey) */
 
@@ -42,7 +110,11 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #fdd835;
+    background-color: #fbc02d;
+}
+
+#surveyTitle{
+    margin-top: 10%;
 }
 
 .surveyText{
@@ -59,7 +131,7 @@
 .surveyButton{
     margin-top: 5%;
     font-size: 35px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 .alignText{
@@ -68,16 +140,30 @@
 
 .aboutSurvey{
     margin-left: 20%;
-    margin-bottom: 7.5%;
 }
 
 #exitSurvey{
+    width: 2.5%;
+    height: 5%;
     margin-top: 5%;
+    margin-left: .5%;
+    cursor: pointer;
+}
+
+#exitSurveyColor{
+    background-color: #fbc02d;
+    padding-bottom: 20px;
+    position: absolute;
+    z-index: -1;
+    width: 1%;
+    height: 1.75%;
+    margin-top: 5.35%;
+    margin-left: 1.25%;
 }
 
 #surveyDiv {
     position: absolute;
-    background-color: white;
+    background-image: url(surveybg.jpg);
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -92,6 +178,10 @@
 
 /* Slide 3 (brewrey finder) */
 
+.input-field {
+    margin-top: 2%;
+}
+
 .thirdSec {
     top: 0;
     left: 0;
@@ -104,7 +194,7 @@
 #map {
     -webkit-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);;
+    box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     float: right;
     margin-right: 5%;
     margin-top: 15%;
@@ -121,29 +211,31 @@
     float: left;
 }
 
-/* Slide 4 (?) */
-
-.fourthSec {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #f9a825;
-}
-
-/* Slide 5 */
-
-.fifthSec {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #f57f17;
-}
-
 /* Survey page styling */
+
+.surveyLane {
+    background-color: #fbc02d;
+}
+
+#box1 label::after {
+    background-color: white;
+    border: white 1px;
+}
+
+#box2 label::after {
+    background-color: white;
+    border: white 1px;
+}
+
+#box3 label::after {
+    background-color: white;
+    border: white 1px;
+}
+
+#box4 label::after {
+    background-color: white;
+    border: white 1px;
+}
 
 strong{
     font-size: 35px;
@@ -159,6 +251,8 @@ strong{
 }
 
 .nextQ{
+    position: relative;
+    z-index: 2;
     margin-right: 5px;
     height: 65px;
     width: 41px;
@@ -166,6 +260,8 @@ strong{
 } 
 
 .backQ{
+    position: relative;
+    z-index: 2;
     margin-left: 5px;
     height: 65px;
     width: 41px;
@@ -173,6 +269,8 @@ strong{
 }
 
 .firstQ, .lastQ{
+    position: relative;
+    z-index: 2;
     height: 25px;
     width: 30px;
     cursor: pointer;
@@ -181,9 +279,9 @@ strong{
 .lastBlock{
     width: 110px;
     height: 15%;
-    background-color: white;
+    background-color: #fbc02d;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     right: -190%;
     top: 80%;
 }
@@ -191,7 +289,7 @@ strong{
 .lastQtext{
     width: 100px;
     position: absolute;
-    z-index: -2;
+    z-index: 0;
     right: -200%;
     top: 80%;
 }
@@ -199,9 +297,9 @@ strong{
 .firstBlock{
     width: 100px;
     height: 15%;
-    background-color: white;
+    background-color: #fbc02d;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     right: 50%;
     top: 80%;
 }
@@ -209,14 +307,16 @@ strong{
 .firstQtext{
     width: 100px;
     position: absolute;
-    z-index: -2;
+    z-index: 0;
     left: -170%;
     top: 80%;
 }
 
 
 .submitbtn{
-    margin-right: 10%;
+    color: white;
+    background-color: grey;
+    margin-left: 40%;
 }
 
 /*.border{
@@ -229,22 +329,31 @@ strong{
 */
 
 .backButtons{
+    margin-top: 5%;
     float: left;
     position: relative;
 }
 
 .answers{
-    margin-left: 12.5%;
+    position: absolute;
+    margin-left: 25%;
     width: 60%;
-    float: left;
+/*    float: left;
+    margin-right: 20%;*/
+}
+
+.forwardButtons{
+    margin-top: 5%;
+    float: right;
+    position: relative;
 }
 
 .leftBlock{
     width: 100px;
     height: 15%;
-    background-color: white;
+    background-color: #fbc02d;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     right: 56%;
     top: 17%;
 }
@@ -252,23 +361,17 @@ strong{
 .backQtext{
     width: 100px;
     position: absolute;
-    z-index: -2;
+    z-index: 0;
     left: -180%;
     top: 15%;
 }
 
-.forwardButtons{
-    float: right;
-    position: relative;
-    margin-top: -24.20%;
-}
-
 .rightBlock{
-    width: 100px;
+    width: 110px;
     height: 15%;
-    background-color: white;
+    background-color: #fbc02d;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     right: -200%;
     top: 15%;
 }
@@ -276,9 +379,9 @@ strong{
 .nextQtext{
     width: 100px;
     position: absolute;
-    z-index: -2;
+    z-index: 0;
     right: -200%;
-    top: 14.5%;
+    top: 13.50%;
 }
 
 .box{
@@ -287,7 +390,7 @@ strong{
     width: 50%;
     height: 300px;
     text-align: center;
-    border: 2px solid black;
+/*    border: 2px solid black;*/
     left: 50%;
     top: 50px;
     margin-left: -25%;
@@ -311,5 +414,9 @@ strong{
 
 #options1 {
     width: 30%;
-    margin-left: 43%;
+    margin-left: 40%;
+}
+
+.qText {
+    color: black;
 }

@@ -13,13 +13,17 @@ var connection = mysql.createConnection({
 
 module.exports = function(app){
 
+	var exphbs = require('express-handlebars');
+	app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+	app.set('view engine', 'handlebars');
+
 	// Constructor for user's data
 	function UserInfo(firstName, lastName, city, favBar, favBeer, email, userName) {
 			
 			this.firstName = firstName,
 			this.lastName = lastName,
 			this.city = city,
-			this.favBar = favBeer,
+			this.favBar = favBar,
 			this.favBeer = favBeer,
 			this.email = email,
 			this.userName = userName
@@ -27,28 +31,10 @@ module.exports = function(app){
 	};
 	var userData;
 
-		// Authentication and Authorization Middleware
-	var auth = function(req, res, next) {
-		console.log('=============');
-		console.log(req.url);
-		console.log(req.session);
-	  // verifing that the session properties are valid
-	  if (req.session && req.session.isAuth == true){
-	  // if true the next parameter is invoked and procedes to line 79
-	    return next();
-		}
-	  else {
-	    // send a response to client informing them
-	    // that they are unauthorized to recive the page they are 
-	    // requesting without proper credentials
-	    return res.sendStatus(401);
-		}
-	};
-
 	app.post('/loginInfo', function(req, res){
 	var userName = req.body.userName;
 	var password = req.body.password;
-	var userQuery = 'SELECT firstName, userEmail, favBeer, favBar, city FROM caskUsers WHERE userName = ? AND userSecret = ?';
+	var userQuery = 'SELECT firstName, lastName, userEmail, favBeer, favBar, city, userName FROM caskUsers WHERE userName = ? AND userSecret = ?';
 	//req.session.isAuth = true;
 	connection.query(userQuery,[userName, password], function(err, data){
 		if(err) {
@@ -116,8 +102,50 @@ module.exports = function(app){
 		}
 	});
 
+//	app.post('/forgot', function(req, res){
+//		
+//		var theQuery = 'SELECT userSecret, userEmail FROM caskUsers WHERE userName = ?';
+//		connection.query(theQuery, [req.body.userName], function(err, data){
+//			if(err){
+//				res.json('invalid');
+//				return;
+//			}
+//			else if(data[0]){
+//			
+//				res.json({
+//					success: 'success',
+//					userPass: data[0].userSecret,
+//					userEmail: data[0].userEmail
+//				});
+//			}
+//			else{
+//				res.json('invalid');
+//			}
+//		});
+//
+//	});
+
+
+
+	app.get('/profile', function(req, res){
+		
+		res.render('user-profile', {
+
+
+			firstName: userData.firstName,
+			lastName: userData.lastName,
+			userName: userData.userName,
+			city: userData.city,
+			email: userData.email,
+			favBeer: userData.favBeer,
+			favBar: userData.favBar,
+
+		});
+	});
+
 	app.get('/logout', function(req, res){
 		req.session.destroy();
+		res.sendFile(path.join(__dirname + '/../public/html/landing.html'));		
 	});
 
 	app.get('/home', function(req, res){

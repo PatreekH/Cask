@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Cask | Profile</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- jQuery -->
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<!-- our css -->
+
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<style type="text/css">
+	#header {
+		text-align: center;
+		
+	}
+	#header a {
+		color: black;
+	}
+	#header a:hover {
+		text-decoration: none;
+		color: gray;
+	}
+	li {
+		list-style-type: none;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<h2 id="header"><a href="/home">Cask</a></h2>
+			</div>
+		</div> <!-- row -->
+		<div class="row">
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<img src="http://vignette4.wikia.nocookie.net/jamesbond/images/6/61/Generic_Placeholder_-_Profile.jpg/revision/latest?cb=20121227201208g" class="img-thumbnail"> 
+			</div>
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">{{firstName}} {{lastName}}</h3>
+				  </div>
+				  <div class="panel-body">
+				    <ul>
+				    	<li>Favorite beer: {{favBeer}}</li>
+				    	<li>Favorite bar: {{favBar}}</li>
+				    	<li>Email: {{email}}</li>
+				    	<li>User Name: {{userName}}</li>
+				    	<li><span class="glyphicon glyphicon-home"></span> {{city}}</li>
+				    </ul>
+				  </div>
+				</div> <!-- panel -->
+			</div> <!-- col -->
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Friends</h3>
+				  </div>
+				  <div class="panel-body">
+				    Coming soon...
+				  </div>
+				</div>
+			</div>
+		</div> <!-- row -->
+	</div>
+</body>
+</html>
