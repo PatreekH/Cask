@@ -105,6 +105,15 @@ $('#takeSurvey').mouseout(function() {
 // Logic for off page survey div
 $(document).ready(function(){
 
+/*window.onload = function(){
+	setTimeout(function(){
+		$(".indexLogo").fadeIn(1000);
+	}, 6750);
+};*/
+
+
+
+
 // Current question set to 0
 	var qCount = 0;
 
