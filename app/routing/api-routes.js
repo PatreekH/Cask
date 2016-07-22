@@ -223,6 +223,8 @@ module.exports = function(app){
 		url += ibu;
 		url += key;
 
+		console.log(url);
+
 		request(url, function (error, response, body) {
 				if (!error) {
 				  	var matchedBeer = JSON.parse(body)
