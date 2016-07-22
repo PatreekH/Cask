@@ -219,9 +219,10 @@ module.exports = function(app){
 		request(url, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 				  	var matchedBeer = JSON.parse(body)
-				  	
+
+				  	console.log(matchedBeer)
 				  
-				  	res.json(frontEndData);
+				  	/*res.json(frontEndData);*/
 				}
 			})
 
