@@ -428,6 +428,17 @@ strong{
     height: 70%;
 }
 
+#box5 h3{
+font-size: 20px;
+}
+
+#box5 h4{
+font-size: 20px;
+}
+
+#box5 h5{
+font-size: 15px;
+}
 
 #options1 {
     width: 30%;
