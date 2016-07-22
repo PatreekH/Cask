@@ -8,19 +8,17 @@
 
 /* Font class */
 
-.caskLogo {
+.brand-logo {
     font-family: 'Cookie', cursive;
-    font-size: 50px;
-    margin-left: 42%;
 }
 
 /* Header styling */
 
 .navbg{
     background-image: url(fresh-snow.png);
-    background-color: #696969;
+    background-color: grey;
     box-shadow: 0px 0px 0px 0px;
-    /*border-bottom: 5px solid #fbc02d;*/
+    border-bottom: 5px solid #fbc02d;
 }
 
 .nav-wrapper {
@@ -227,8 +225,6 @@
 /* Survey page styling */
 
 .surveyLane {
-    border-top: 5px solid #696969;
-    border-bottom: 5px solid #696969;
     background-color: #fbc02d;
 }
 
@@ -401,7 +397,7 @@ strong{
     /*background-color: white;*/
     position: absolute;
     width: 50%;
-    height: 300px;
+    height: 60%;
     text-align: center;
 /*    border: 2px solid black;*/
     left: 50%;
@@ -458,4 +454,8 @@ strong{
 #beer-image {
     max-width: 20%;
 
+}
+
+h4, h5, h3 {
+    font-size: 100%;
 }
