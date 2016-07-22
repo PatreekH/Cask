@@ -45,6 +45,7 @@ module.exports = function(app){
 		}
 		else if(data[0]){
 
+				req.session.userName = data[0].userName;
 				req.session.isAuth = true;
 				console.log(req.session);
 				
