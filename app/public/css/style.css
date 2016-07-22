@@ -433,3 +433,9 @@ strong{
 .qText {
     color: black;
 }
+
+
+.beerContent {
+    float: left;
+    width: 40%;
+}
