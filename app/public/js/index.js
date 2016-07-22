@@ -236,6 +236,10 @@ $(document).ready(function(){
 
 	$('#exitSurvey').click(function() {
 		if (confirm("Are you sure you want to exit? Exiting the survey will reset your current answers") == true) {
+			$(".question1").prop('checked', false);
+			$(".question2").prop('checked', false);
+			$(".question3").prop('checked', false);
+			$(".question4").prop('checked', false);
 			firstQ();
 			$('#surveyDiv').animate({'marginLeft' : 200 + "%"}, 1250);
 	    } else {
