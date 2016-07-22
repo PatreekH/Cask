@@ -80,7 +80,7 @@ module.exports = function(app){
 	var surveyArray = []
 
 	app.get('/api/survey', function(req, res){
-		res.json(frontEndData);
+		res.json(surveyArray);
 	});
 
 	app.post('/api/survey', function(req, res){
@@ -118,7 +118,6 @@ module.exports = function(app){
 		case 1:
 			srm += Math.floor(Math.random()*(10-1+1)+1);
 			srmWords = "light";
-			console.log(srm)
 			break;
 		case 2: 
 			srm += Math.floor(Math.random()*(20-11+1)+11);
@@ -216,12 +215,15 @@ module.exports = function(app){
 		url += key;
 		console.log(url);
 
+		var url2 = "https://api.brewerydb.com/v2/beer/random/?ibu=10,11&abv=+10&key=ab12f84ebc125fbbfd15ff211dd304e6&format=json"
 		request(url, function (error, response, body) {
-				if (!error && response.statusCode == 200) {
+				if (!error) {
 				  	var matchedBeer = JSON.parse(body)
-				  	
-				  
-				  	res.json(frontEndData);
+				  	console.log(matchedBeer);
+
+				  	surveyArray.push(matchedBeer.data);
+
+				  	res.json(surveyArray);
 				}
 			})
 

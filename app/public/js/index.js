@@ -285,6 +285,7 @@ $("#submit").on("click", function(){
 			surveyPost(beerName, beerImage);
 		}
 
+
 	})
 	$('#modal1').openModal();
 

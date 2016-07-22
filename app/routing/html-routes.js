@@ -131,7 +131,6 @@ module.exports = function(app){
 //	});
 
 	app.post('/surveydata', function(req, res){
-		console.log('dlkjdflkd');
 		if(req.session.isAuth == true){
 			var beerPic = req.body.beerUrl;
 			var beerName = req.body.beerName;
