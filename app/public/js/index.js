@@ -263,7 +263,7 @@ $("#submit").on("click", function(){
 	console.log(answers);
 
 	$.post("/api/survey", surveyData, function(data) {
-	console.log(data)
+	console.log(data[0])
 
 	})
 	$('#modal1').openModal();
