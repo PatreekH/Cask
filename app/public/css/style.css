@@ -427,6 +427,9 @@ strong{
 
 #box5{
     left: 450%;
+    background-color: white;
+    border: 6px solid grey;
+    height: 400px;
 }
 
 
@@ -437,4 +440,23 @@ strong{
 
 .qText {
     color: black;
+}
+
+
+.beerContent {
+    float: left;
+    width: 38%;
+    margin-left: 2%;
+    overflow: auto;
+}
+
+.right-side {
+    width: 58%;
+    float: left;
+    margin-right: 2%;
+}
+
+#beer-image {
+    max-width: 20%;
+
 }
