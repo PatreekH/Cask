@@ -18,9 +18,9 @@
 
 .navbg{
     background-image: url(fresh-snow.png);
-    background-color: #696969;
+    background-color: black;
     box-shadow: 0px 0px 0px 0px;
-    /*border-bottom: 5px solid #fbc02d;*/
+    border-bottom: 5px solid #696969;
 }
 
 .nav-wrapper {
@@ -43,8 +43,12 @@
     height: 100%;
 }
 
+#logo {
+    height: 15%;
+    width: 20%;
+}
+
 .indexLogo {
-    opacity: 0.75;
     font-family: "Poor Richard", serif;
     color: black;
     font-size: 50px;
@@ -56,15 +60,15 @@
 }
 
 .aboutUs {
-    opacity: 0.75;
     font-family: "Poor Richard", serif;
     color: black;
     font-size: 30px;
     position: relative;
-    top: 25%;
-    left: 63%;
+    top: 15%;
+    left: 67.50%;
     right: 0;
-    bottom: 0;}
+    bottom: 0;
+}
 
 
 /* Slide 1 background*/
@@ -193,24 +197,35 @@
     background-color: #fbc02d;
 }
 
-
-/*EDIT*/
 #stein{
     position: absolute;
     z-index: +1;
-    margin-top: 8.50%;
-    margin-left: -42.50%;
-    /*margin-right: 50%;*/
+    margin-left: -14%;
+    margin-top: 10%;
     width: 40%;
     height: 80%;
 }
 
+input[type=text] {
+    border: 2px solid black;
+    background-color: white;
+}
+
+input[type=text]:focus {
+    background-color: #696969;
+  border-bottom: 1px solid black;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 #map {
-/*    -webkit-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
+/*  -webkit-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);*/
-    float: right;
     margin-right: 5%;
+    margin-top: 17.50%;
+    margin-left: 40%;
     width: 50%;
     height: 50%;
 }
@@ -219,9 +234,9 @@
     /*background-color: white;*/
     height: 20%;
     width: 25%;
-    margin-left: 60%;
+    margin-right: 22.50%;
     margin-top: 8%;
-/*    float: right;*/
+    float: right;
 }
 
 /* Survey page styling */
@@ -428,7 +443,7 @@ strong{
 #box5{
     left: 450%;
     background-color: white;
-    border: 6px solid grey;
+    border: 6px solid #696969;
     height: 70%;
 }
 

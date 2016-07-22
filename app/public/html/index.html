@@ -21,8 +21,8 @@
 		<nav>
 			<div class="navbar-fixed">
 			    <div class="nav-wrapper navbg">
-			    <b><span class="welcome">welcome, </span><span class="welcomeText"></span></b>
-			      <span class="center caskLogo">Cask</span>
+			    	<span class="welcome"><b>welcome, </b></span><b><span class="welcomeText"></span></b>
+			    	<span class="center caskLogo">Cask</span>
 			      <ul id="nav-mobile" class="right hide-on-med-and-down">
 			        <li><a href="#"><span><b>Home</b></span></a></li>
 			        <li><a href="#"><span><b>Search</b></span></a></li>
@@ -43,7 +43,7 @@
 			    </video>
 			</div>
 
-			<div class="indexLogo">Cask Logo</div>
+			<div class="indexLogo"><img id="logo" src="../css/cask_logo.png"></div>
 	      
 	      	<div class="aboutUs"><p>About us</p></div>
 	      	
@@ -356,11 +356,11 @@
 
 	      	<!--Input for beer search-->
 
-			  <div class="row brewreyForm">
+			  <div class="brewreyForm">
 			    <form class="col s12">
-			        <div class="input-field col s12">
-			        	<label for="userLocation">Please enter a zipcode.</label>
-			        	<input placeholder="Search for breweries by location" id="user_location" type="text" class="validate">
+			        <div class="col s12">
+			        	<label for="userLocation">Please enter a zipcode:</label>
+			        	<input class="mapInput" placeholder="   Search for breweries by location" id="user_location" type="text">
 			        	<button id="submitLocation" type="submit" value="submit">Submit</button>
 			        </div>
 
@@ -373,7 +373,7 @@
 				</form>
 			</div>
         
-			<!-- <img id="stein" src="../css/growler_bkgd.png"> -->
+			<img id="stein" src="../css/growler_bkgd.png">
 			<div id="map"></div>
 
 	      </section>
