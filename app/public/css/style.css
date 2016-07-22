@@ -8,17 +8,19 @@
 
 /* Font class */
 
-.brand-logo {
+.caskLogo {
     font-family: 'Cookie', cursive;
+    font-size: 50px;
+    margin-left: 42%;
 }
 
 /* Header styling */
 
 .navbg{
     background-image: url(fresh-snow.png);
-    background-color: grey;
+    background-color: #696969;
     box-shadow: 0px 0px 0px 0px;
-    border-bottom: 5px solid #fbc02d;
+    /*border-bottom: 5px solid #fbc02d;*/
 }
 
 .nav-wrapper {
@@ -225,6 +227,8 @@
 /* Survey page styling */
 
 .surveyLane {
+    border-top: 5px solid #696969;
+    border-bottom: 5px solid #696969;
     background-color: #fbc02d;
 }
 
