@@ -18,7 +18,7 @@ module.exports = function(app){
 	app.set('view engine', 'handlebars');
 
 	// Constructor for user's data
-	function UserInfo(firstName, lastName, city, favBar, favBeer, email, userName) {
+	function UserInfo(firstName, lastName, city, favBar, favBeer, email, userName, surveyBeer, beerPic) {
 			
 			this.firstName = firstName,
 			this.lastName = lastName,
@@ -26,7 +26,9 @@ module.exports = function(app){
 			this.favBar = favBar,
 			this.favBeer = favBeer,
 			this.email = email,
-			this.userName = userName
+			this.userName = userName,
+			this.surveyBeer = surveyBeer,
+			this.beerPic = beerPic
 
 	};
 	var userData;
@@ -34,7 +36,7 @@ module.exports = function(app){
 	app.post('/loginInfo', function(req, res){
 	var userName = req.body.userName;
 	var password = req.body.password;
-	var userQuery = 'SELECT firstName, lastName, userEmail, favBeer, favBar, city, userName FROM caskUsers WHERE userName = ? AND userSecret = ?';
+	var userQuery = 'SELECT firstName, lastName, userEmail, favBeer, favBar, city, userName, selectedBeer, selectedBeerUrl FROM caskUsers WHERE userName = ? AND userSecret = ?';
 	//req.session.isAuth = true;
 	connection.query(userQuery,[userName, password], function(err, data){
 		if(err) {
@@ -43,6 +45,7 @@ module.exports = function(app){
 		}
 		else if(data[0]){
 
+				req.session.userName = data[0].userName;
 				req.session.isAuth = true;
 				console.log(req.session);
 				
@@ -53,8 +56,10 @@ module.exports = function(app){
 				var	lastName = data[0].lastName;
 				var	userEmail = data[0].userEmail;
 				var	userName = data[0].userName;
+				var surveyBeer = data[0].selectedBeer;
+				var beerPic = data[0].selectedBeerUrl;
 
-				userData = new UserInfo(firstName, lastName, city, favBar, favBeer, userEmail, userName);
+				userData = new UserInfo(firstName, lastName, city, favBar, favBeer, userEmail, userName, surveyBeer, beerPic);
 				
 				res.send("success");
 			}
@@ -102,45 +107,49 @@ module.exports = function(app){
 		}
 	});
 
-//	app.post('/forgot', function(req, res){
-//		
-//		var theQuery = 'SELECT userSecret, userEmail FROM caskUsers WHERE userName = ?';
-//		connection.query(theQuery, [req.body.userName], function(err, data){
-//			if(err){
-//				res.json('invalid');
-//				return;
-//			}
-//			else if(data[0]){
-//			
-//				res.json({
-//					success: 'success',
-//					userPass: data[0].userSecret,
-//					userEmail: data[0].userEmail
-//				});
-//			}
-//			else{
-//				res.json('invalid');
-//			}
-//		});
-//
-//	});
 
+	app.post('/surveydata', function(req, res){
+		if(req.session.isAuth == true){
+			var beerPic = req.body.beerUrl;
+			var beerName = req.body.beerName;
+			var theQuery = 'UPDATE caskUsers SET selectedBeer = ?, selectedBeerUrl = ? WHERE userName = ?';
+			connection.query(theQuery, [beerName, beerPic, req.session.userName]);
+			res.json('success');
+		}
+		else{
+			res.json('invalid');
+		}
+	});
 
 
 	app.get('/profile', function(req, res){
-		
-		res.render('user-profile', {
+		console.log('profile request' + userData.surveyBeer + ' ' + userData.beerPic);
+		if(userData.surveyBeer == null && userData.beerPic == null) {
+			res.render('user-profile', {
+				firstName: userData.firstName,
+				lastName: userData.lastName,
+				userName: userData.userName,
+				city: userData.city,
+				email: userData.email,
+				favBeer: userData.favBeer,
+				favBar: userData.favBar
 
+			});
+		}
+		else if(userData.surveyBeer !== null && userData.beerPic !== null){
+			res.render('user-profile-survey', {
+				firstName: userData.firstName,
+				lastName: userData.lastName,
+				userName: userData.userName,
+				city: userData.city,
+				email: userData.email,
+				favBeer: userData.favBeer,
+				favBar: userData.favBar,
+				selectedBeer: userData.surveyBeer,
+				beerPic: userData.beerPic
 
-			firstName: userData.firstName,
-			lastName: userData.lastName,
-			userName: userData.userName,
-			city: userData.city,
-			email: userData.email,
-			favBeer: userData.favBeer,
-			favBar: userData.favBar,
-
-		});
+			});
+		}
 	});
 
 	app.get('/logout', function(req, res){

@@ -259,6 +259,21 @@ var surveyData = {
 	result: answers
 }
 
+function surveyPost(beerName, beerImage){
+	var currentUrl = window.location.origin;
+		$.ajax({
+			method: 'POST',
+			url: currentUrl + '/surveydata',
+			data: {
+				beerName: beerName,
+				beerUrl: beerImage 
+			},
+			sucess: function(response){
+				console.log('response from survery data post: ' + response);
+			}
+		});
+	};
+
 //Getting value of each radio input
 $("#submit").on("click", function(){
 	var question1 = $(".question1:checked").val();
@@ -269,14 +284,19 @@ $("#submit").on("click", function(){
 	console.log(answers);
 
 	$.post("/api/survey", surveyData, function(data) {
-	console.log(data)
+		var beerName = "budlight";
+		var beerImage = "https://s3.amazonaws.com/brewerydbapi/beer/aKccxT/upload_t4XSiZ-medium.png";
+		console.log(data)
+		if(beerName !== null){
+			surveyPost(beerName, beerImage);
+		}
+
 
 	})
 	$('#modal1').openModal();
 
 	return false;
 })
-
 
 
 $(document).ready(function(){
