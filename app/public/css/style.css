@@ -258,7 +258,8 @@ strong{
     padding: 0px;
     width: 100%;
     height: 55%;
-    overflow: hidden;  
+    overflow: hidden;
+    margin-top: 12.50%;  
 }
 
 .nextQ{
