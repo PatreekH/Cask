@@ -191,24 +191,35 @@
     background-color: #fbc02d;
 }
 
+
+/*EDIT*/
+#stein{
+    position: absolute;
+    z-index: +1;
+    margin-top: 8.50%;
+    margin-left: -42.50%;
+    /*margin-right: 50%;*/
+    width: 40%;
+    height: 80%;
+}
+
 #map {
-    -webkit-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
+/*    -webkit-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 17px 15px 5px 0px rgba(0,0,0,0.75);*/
     float: right;
     margin-right: 5%;
-    margin-top: 15%;
     width: 50%;
     height: 50%;
 }
 
 .brewreyForm{
     /*background-color: white;*/
+    height: 20%;
     width: 25%;
-    height: 35%;
-    margin-left: 5%;
-    margin-top: 10%;
-    float: left;
+    margin-left: 60%;
+    margin-top: 8%;
+/*    float: right;*/
 }
 
 /* Survey page styling */
@@ -314,8 +325,8 @@ strong{
 
 
 .submitbtn{
-    color: white;
-    background-color: grey;
+/*    color: white;
+    background-color: grey;*/
     margin-left: 65%;
 }
 
@@ -411,6 +422,11 @@ strong{
 #box4{
     left: 350%;
 }
+
+#box5{
+    left: 450%;
+}
+
 
 #options1 {
     width: 30%;

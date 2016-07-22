@@ -156,7 +156,7 @@ $(document).ready(function(){
 	// Moves all question divs 100% to the right, pushing the current div on screen to the left
 	function nextQ(){ 
 		$('.nextQtext').animate({right: -60 + "%"}, 500);
-		for (i = 1; i <= 4; i++){
+		for (i = 1; i <= 5; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -175,7 +175,7 @@ $(document).ready(function(){
 	// Moves all question divs 100% to the left, pushing the current div on screen to the right
 	function backQ(){ 
 		$('.backQtext').animate({left: -50 + "%"}, 500);
-		for (i = 1; i <= 4; i++){
+		for (i = 1; i <= 5; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -192,7 +192,7 @@ $(document).ready(function(){
 
 	// Moves all question divs 100% to the right as many times as the current qCount, sets qCount to 0 after
 	function firstQ(){ 
-		for (i = 1; i <= 4; i++){
+		for (i = 1; i <= 5; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -214,7 +214,7 @@ $(document).ready(function(){
 	// Sets qCount to 3
 	function lastQ(){
 		var qToFinish = 3 - qCount; 
-		for (i = 1; i <= 4; i++){
+		for (i = 1; i <= 5; i++){
 			var windowSize = $(window).width();
 			var pos = $("#box" + i).position();
 			var posConvert = (pos.left / windowSize) * 100;
@@ -225,6 +225,12 @@ $(document).ready(function(){
 		}
 		qCount = 3;
 	}
+
+	//On click #submit show results box
+
+	$(".submitbtn").click(function() {
+		nextQ();
+	});
 
 	$('#takeSurvey').click(function() {
 	    $('#surveyDiv').animate({'marginLeft' : 0 + "%"}, 750);
