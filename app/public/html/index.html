@@ -322,29 +322,34 @@
 
 					<div id="box5" class="box">
 						<div class="container beerContent">
-						<h4>Matched Beer Attributes</h4>
-						<h5>ABV</h5>
-							<div class="progress">
-								<div class="determinate" style="width: 70%"></div>
-							</div>
-						<h5>IBU</h5>
-							<div class="progress">
-								<div class="determinate" style="width: 30%"></div>
-							</div>
-						<h5>Gravity</h5>
-							<div class="progress">
-								<div class="determinate" style="width: 50%"></div>
-							</div>
-						<h5>Brightness</h5>
-							<div class="progress">
-								<div class="determinate" style="width: 40%"></div>
-							</div>
+							<h4>Matched Beer Attributes</h4>
+							<h5>Alcohol Content (ABV)</h5>
+								<div class="progress">
+									<div id="abv" class="determinate"></div>
+								</div>
+							<h5>Bitterness (IBU)</h5>
+								<div class="progress">
+									<div id="ibu" class="determinate"></div>
+								</div>
+							<h5>Brightness (SRM)</h5>
+								<div id="srm-margin" class="progress">
+									<div id="srm" class="determinate"></div>
+								</div>
+							<h5 id="organicMargin">Organic? <i id="organic" aria-hidden="true"></i></h5>
+
 						</div>
 
 						<div class="container right-side">
 							<!--Beer title-->
-							<h3>Brown Bus Brewing Ale</h3>
-							<img id="beer-image" src="https://s3.amazonaws.com/brewerydbapi/beer/7ehle4/upload_mZbFo9-large.png">
+							<h3 id="beer-title"></h3>
+							<h5 id="beer-style"></h5>
+							<img id="beer-image" src="../css/images/stein_bkgd.png">
+
+						</div>
+
+						<div class="container description">
+							<h3 id="description-style">Description</h3>
+							<p id="beer-description"></p>
 						</div>
 					</div>
 

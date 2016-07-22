@@ -426,6 +426,7 @@ strong{
     background-color: white;
     border: 6px solid grey;
     height: 70%;
+    overflow: auto;
 }
 
 #box5 h3{
@@ -454,17 +455,52 @@ font-size: 15px;
     float: left;
     width: 38%;
     margin-left: 2%;
+    height: 70%;
 }
 
 .right-side {
     width: 58%;
     float: left;
     margin-right: 2%;
+    height: 70%;
 }
 
 #beer-image {
-    max-width: 20%;
+    max-width: 25%;
 
+}
+
+#beer-title {
+    margin-top: 2%;
+    margin-bottom: 0;
+}
+
+#beer-style {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#beer-description {
+    margin-top: 0;
+}
+
+.description {
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: center;
+}
+
+#description-style {
+    margin-bottom: 1%;
+}
+
+.progress {
+    background-color: #CCA698;
+}
+
+.progress .determinate {
+    background-color: #795548;
 }
 
 h4, h5, h3 {

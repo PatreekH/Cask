@@ -281,12 +281,38 @@ $("#submit").on("click", function(){
 	var question3 = $(".question3:checked").val();
 	var question4 = $(".question4:checked").val();
 	answers.push(question1, question2, question3, question4);
-	console.log(answers);
 
 	$.post("/api/survey", surveyData, function(data) {
+
+
+		//Logic for "progress bars" detailing how intense the flavors of the beer are.
+		var abvPercentage = parseInt(data[0].abv) * 7.1;
+		var ibuPercentage = parseInt(data[0].ibu) * 1.3;
+		var srmPercentage = parseInt(data[0].srmId) * 2.5;
+
+		$("#abv").css("width", abvPercentage + "%");
+		$("#ibu").css("width", ibuPercentage + "%");
+		$("#srm").css("width", srmPercentage + "%");
+
+		//Logic for determining organic or not
+		if (data[0].isOrganic == "Y") {
+			$("#organic").attr("class", "fa fa-check")
+		} else {
+			$("#organic").attr("class", "fa fa-times");
+		}
+
+		//Logic for determining beer title, sub-title (style), image, and description.
+		$("#beer-title").text(data[0].name);
+		$("#beer-style").text(data[0].style.name)
+		$("#beer-description").text(data[0].description)
+		$("#beer-image").attr("src", data[0].labels.medium);
+
+
+
+		console.log(data)
+
 		var beerName = "budlight";
 		var beerImage = "https://s3.amazonaws.com/brewerydbapi/beer/aKccxT/upload_t4XSiZ-medium.png";
-		console.log(data)
 		if(beerName !== null){
 			surveyPost(beerName, beerImage);
 		}
