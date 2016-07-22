@@ -16,6 +16,8 @@ userSecret VARCHAR(24) NOT NULL,
 favBeer VARCHAR(40) NOT NULL, 
 city VARCHAR(40) NOT NULL,
 favBar VARCHAR(40) NOT NULL,
+selectedBeer VARCHAR(40),
+selectedBeerUrl VARCHAR(100),
 PRIMARY KEY(userID)
 
 );
