@@ -293,7 +293,6 @@ $("#submit").on("click", function(){
 
 
 	})
-	$('#modal1').openModal();
 
 	return false;
 })

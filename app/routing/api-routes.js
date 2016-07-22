@@ -92,10 +92,12 @@ module.exports = function(app){
 	var userResult = result.map(Number);
 	//Variables used to generate request URL to match user with beer
 
+
+
+	//alcohol content/strength
+	var abv = "?abv="
 	//color / brightness
-	var srm = "?srmId="
-		//alcohol content/strength
-	var abv = "&abv="
+	var srm = "&srmId="
 	//biterness
 	var ibu = "&ibu="
 	//organic
@@ -146,9 +148,6 @@ module.exports = function(app){
 			abv += "6,9";
 			abvWords = "high";
 			break;
-		case 3:
-			abv;
-			break;
 		case 4:
 			abv += "3,5";
 			abvWords = "medium";
@@ -160,7 +159,6 @@ module.exports = function(app){
 	}
 
 	//Switch statement for IBU
-
 	switch(userResult[2]) {
 		case 1:
 			ibu += "+70";
@@ -169,9 +167,6 @@ module.exports = function(app){
 		case 2:
 			ibu += "50,70";
 			ibuWords = "high";
-			break;
-		case 3:
-			ibu;
 			break;
 		case 4:
 			ibu += "30,50";
@@ -185,7 +180,6 @@ module.exports = function(app){
 
 
 	//Switch statement for organic
-
 	switch(userResult[3]) {
 		case 1:
 			organic = "Y";
@@ -205,30 +199,50 @@ module.exports = function(app){
 			break;
 	}
 
+
+	//Function to display a beer if no results are found for user palette survey.
+	function noBeerFound() {
+		var url = "https://api.brewerydb.com/v2/beer/random/" + abv + "&key=ab12f84ebc125fbbfd15ff211dd304e6&format=json"
+		request(url, function (error, response, body) {
+				if (!error) {
+				  	var matchedBeer = JSON.parse(body)
+
+				  	console.log(matchedBeer);
+				  	surveyArray.push(matchedBeer.data);
+					res.json(surveyArray);
+				}
+			})
+	}
+
 	//Function to match user with beer based upon URL that is generated
 	function matchBeer() {
 		var key = "&key=ab12f84ebc125fbbfd15ff211dd304e6&format=json";
 		var url = "https://api.brewerydb.com/v2/beer/random";
+		url += abv;
 		url += srm;
 		url += ibu;
-		url += abv;
 		url += key;
-		console.log(url);
 
-		var url2 = "https://api.brewerydb.com/v2/beer/random/?ibu=10,11&abv=+10&key=ab12f84ebc125fbbfd15ff211dd304e6&format=json"
 		request(url, function (error, response, body) {
 				if (!error) {
 				  	var matchedBeer = JSON.parse(body)
-				  	console.log(matchedBeer);
 
-				  	surveyArray.push(matchedBeer.data);
+				  	if (matchedBeer.status == "failure") {
+				  		noBeerFound();
+				  	} else {
+				  		console.log(matchedBeer);
+				  		surveyArray.push(matchedBeer.data);
+						res.json(surveyArray);
 
-				  	res.json(surveyArray);
+				  	}
+
+
 				}
 			})
 
 
 	};
+
 	matchBeer();
 
 	})
