@@ -425,7 +425,7 @@ strong{
     left: 450%;
     background-color: white;
     border: 6px solid grey;
-    height: 400px;
+    height: 70%;
 }
 
 
@@ -443,7 +443,6 @@ strong{
     float: left;
     width: 38%;
     margin-left: 2%;
-    overflow: auto;
 }
 
 .right-side {
