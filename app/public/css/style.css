@@ -401,7 +401,7 @@ strong{
     /*background-color: white;*/
     position: absolute;
     width: 50%;
-    height: 300px;
+    height: 60%;
     text-align: center;
 /*    border: 2px solid black;*/
     left: 50%;
@@ -429,9 +429,20 @@ strong{
     left: 450%;
     background-color: white;
     border: 6px solid grey;
-    height: 400px;
+    height: 70%;
 }
 
+#box5 h3{
+font-size: 20px;
+}
+
+#box5 h4{
+font-size: 20px;
+}
+
+#box5 h5{
+font-size: 15px;
+}
 
 #options1 {
     width: 30%;
