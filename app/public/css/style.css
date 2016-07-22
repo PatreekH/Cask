@@ -8,8 +8,10 @@
 
 /* Font class */
 
-.brand-logo {
+.caskLogo {
     font-family: 'Cookie', cursive;
+    font-size: 50px;
+    margin-left: 42%;
 }
 
 /* Header styling */
@@ -241,6 +243,8 @@ input[type=text]:focus {
 
 .surveyLane {
     background-color: #fbc02d;
+    border-top: 5px solid #696969;
+    border-bottom: 5px solid #696969;
 }
 
 #box1 label::after {
