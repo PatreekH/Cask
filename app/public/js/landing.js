@@ -93,6 +93,32 @@ $('#submit-sign').on('click', function() {
 
 });
 
+$('#forgot-pass').on('click', function(){
+	$('#forgot-modal').modal('toggle');
+});
+
+$('#submit-forgot').on('click', function(){
+	var forgetfull = $('#input-forgot').val().trim();
+	var currentUrl = window.location.origin;
+	$.ajax({
+		method: 'POST',
+		url: currentUrl + '/forgot',
+		data: {
+			userName : forgetfull
+		},
+		success: function(response){
+			if(response.success == 'success'){
+				var password = response.userPass;
+				var email = response.userEmail;
+				$('#submit-forgot').remove();
+			}
+			else if(response == 'invalid'){
+				console.log('this is not a valid username');
+			}
+		}
+	})
+})
+
 
 
 
