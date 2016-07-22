@@ -130,6 +130,19 @@ module.exports = function(app){
 //
 //	});
 
+	app.post('/surveydata', function(req, res){
+		console.log('dlkjdflkd');
+		if(req.session.isAuth == true){
+			var beerPic = req.body.beerUrl;
+			var beerName = req.body.beerName;
+			var theQuery = 'UPDATE caskUsers SET selectedBeer = ?, selectedBeerUrl = ? WHERE userName = ?';
+			connection.query(theQuery, [beerName, beerPic, req.session.userName]);
+			res.json('success');
+		}
+		else{
+			res.json('invalid');
+		}
+	});
 
 
 	app.get('/profile', function(req, res){

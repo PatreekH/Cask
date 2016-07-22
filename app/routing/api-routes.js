@@ -89,7 +89,7 @@ module.exports = function(app){
 	var surveyData = req.body;
 	var result = surveyData.result;
 	//Turning result array of strings into array of numbers
-	var userResult = result.map(Number)
+	var userResult = result.map(Number);
 	//Variables used to generate request URL to match user with beer
 
 	//color / brightness
