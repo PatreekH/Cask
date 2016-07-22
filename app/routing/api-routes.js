@@ -89,7 +89,7 @@ module.exports = function(app){
 	var surveyData = req.body;
 	var result = surveyData.result;
 	//Turning result array of strings into array of numbers
-	var userResult = result.map(Number)
+	var userResult = result.map(Number);
 	//Variables used to generate request URL to match user with beer
 
 	//color / brightness
@@ -217,7 +217,7 @@ module.exports = function(app){
 
 		var url2 = "https://api.brewerydb.com/v2/beer/random/?ibu=10,11&abv=+10&key=ab12f84ebc125fbbfd15ff211dd304e6&format=json"
 		request(url, function (error, response, body) {
-				if (!error && response.statusCode == 200) {
+				if (!error) {
 				  	var matchedBeer = JSON.parse(body)
 				  	console.log(matchedBeer);
 
