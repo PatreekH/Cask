@@ -107,28 +107,6 @@ module.exports = function(app){
 		}
 	});
 
-//	app.post('/forgot', function(req, res){
-//		
-//		var theQuery = 'SELECT userSecret, userEmail FROM caskUsers WHERE userName = ?';
-//		connection.query(theQuery, [req.body.userName], function(err, data){
-//			if(err){
-//				res.json('invalid');
-//				return;
-//			}
-//			else if(data[0]){
-//			
-//				res.json({
-//					success: 'success',
-//					userPass: data[0].userSecret,
-//					userEmail: data[0].userEmail
-//				});
-//			}
-//			else{
-//				res.json('invalid');
-//			}
-//		});
-//
-//	});
 
 	app.post('/surveydata', function(req, res){
 		if(req.session.isAuth == true){
@@ -148,8 +126,6 @@ module.exports = function(app){
 		console.log('profile request' + userData.surveyBeer + ' ' + userData.beerPic);
 		if(userData.surveyBeer == null && userData.beerPic == null) {
 			res.render('user-profile', {
-
-
 				firstName: userData.firstName,
 				lastName: userData.lastName,
 				userName: userData.userName,
@@ -161,9 +137,7 @@ module.exports = function(app){
 			});
 		}
 		else if(userData.surveyBeer !== null && userData.beerPic !== null){
-			res.render('user-profile', {
-
-
+			res.render('user-profile-survey', {
 				firstName: userData.firstName,
 				lastName: userData.lastName,
 				userName: userData.userName,
@@ -171,7 +145,7 @@ module.exports = function(app){
 				email: userData.email,
 				favBeer: userData.favBeer,
 				favBar: userData.favBar,
-				selectedBeer: userData.selectedBeer,
+				selectedBeer: userData.surveyBeer,
 				beerPic: userData.beerPic
 
 			});
