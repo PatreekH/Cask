@@ -163,7 +163,7 @@ $(document).ready(function(){
 			var newPos = posConvert - 100;
 			$("#box" + i).animate({left: newPos + "%"}, 1000);
 			//console.log("Q" + i + ": " + posConvert);
-		}
+		};
 	}
 
 	// Runs backQ function and subtracts 1 from qCount on back question click
@@ -182,7 +182,7 @@ $(document).ready(function(){
 			var newPos = posConvert + 100;
 			$("#box" + i).animate({left: newPos + "%"}, 1000);
 			//console.log("Q" + i + ": " + posConvert);
-		}
+		};
 	}
 
 	// Runs firstQ function on first question click
@@ -222,7 +222,7 @@ $(document).ready(function(){
 			var newPos = posConvert - currQ;
 			$("#box" + i).animate({left: newPos + "%"}, 1750);
 			//console.log("Q" + i + ": " + newPos);
-		}
+		};
 		qCount = 3;
 	}
 
