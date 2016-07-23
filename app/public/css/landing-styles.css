@@ -61,7 +61,9 @@
     font-family: Bukhari;
     src: url(fonts/Bukhari_Script.ttf);
 }
-
-
-
-	
+.modal-footer button {
+	background-color: #fbc02d;
+}
+.modal-body, .modal-header, .modal-footer{
+	background-color: #999999;
+	}
