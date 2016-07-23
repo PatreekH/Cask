@@ -510,6 +510,11 @@ font-size: 15px;
     text-align: center;
 }
 
+
+#no-image {
+    margin-top: 0;
+}
+
 #description-style {
     margin-bottom: 1%;
 }
@@ -522,3 +527,18 @@ font-size: 15px;
     background-color: #795548;
 }
 
+
+.brewery-description {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.brewery-type {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+}
+
+.brewery-name {
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: bold;
+}
