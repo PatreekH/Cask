@@ -348,16 +348,12 @@ $(document).ready(function(){
 		success: function(response){
 			if(response.success == 'success'){
 				$(".welcomeText").html(response.name);
-
-
-				console.log('logged in!!!!!');
-
+				$("#sign-up-link").remove();
 			}
 			else{
 				$(".welcomeText").html("Visitor!");
 				$("#profile-link").remove();
 				$("#logout-link").remove();
-				console.log('not logged in...');
 
 			}
 		}
