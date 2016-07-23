@@ -23,7 +23,8 @@
 		padding-left: 3%;
 		padding-bottom: 3%;
 		padding-top: 1%;
-		background-image: url(landingbarrel.png);
+		background-color: #696969;
+		/*background-image: url(landingbarrel.png);*/
 		background-size: 100%;
 		background-repeat: no-repeat;
 		/*border-radius: 10px 10px 10px 10px;*/
