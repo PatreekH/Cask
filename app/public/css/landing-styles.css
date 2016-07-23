@@ -39,10 +39,11 @@
 		/* Webkit (Chrome 11+) */ 
 		/*background-image: -webkit-radial-gradient(center, ellipse closest-side, #FFFFFF 0%, gray 100%);*/	}
 	#buttons h2 {
+		font-size: 46px;
 		margin-top: 0;
-		margin-bottom: 5%;
+		/*margin-bottom: 5%;*/
 		color: white;
-		font-family: Bukhari;
+		font-family: 'Cookie', cursive;
 	}
 	.jumbotron {
 		background: none;
