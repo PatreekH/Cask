@@ -24,10 +24,10 @@
 			    	<span class="welcome"><b>Welcome, </b></span><b><span class="welcomeText"></span></b>
 			    	<span class="center caskLogo">Cask</span>
 			      <ul id="nav-mobile" class="right hide-on-med-and-down">
-			        <li><a href="#"><span><b>Home</b></span></a></li>
-			        <li><a href="#"><span><b>Search</b></span></a></li>
-			        <li><a href="#"><span><b>Survey</b></span></a></li>
-			        <li id="sign-up-link"><a href="/logout">Sign Up</a></li>
+			        <li><a href="#section1"><span><b>Home</b></span></a></li>
+			        <li><a href="#section3"><span><b>Survey</b></span></a></li>
+			        <li><a href="#section2"><span><b>Search</b></span></a></li>
+			        <li id="sign-up-link"><a href="/logout"><b>Sign Up</b></a></li>
 			        <li id="profile-link"><a href="/profile"><span><b>Profile</b></span></a></li>
 			        <li id="logout-link"><a href="/logout"><span><b>Log Out</b></span></a></li>
 			      </ul>
@@ -36,7 +36,7 @@
 		</nav>
 
 	    <div class="main">
-	      <section class="firstSec">
+	      <a name="section1"><section class="firstSec"></a>
 
 		    <div class="fullscreen-bg">
 			    <video loop muted autoplay poster="" class="fullscreen-bg__video">
@@ -51,7 +51,7 @@
 	      
 	      </section>
 	      
-	      <section class="secondSec">
+	      <section class="secondSec" name="section2">
 	      	<h2 class="surveyHead">Can't decide which brew you like the most?...</h2>
 	      	<br>
 	      	<div class="surveyText alignText">
@@ -138,11 +138,6 @@
 							</div>
 							<br>
 							<br>
-							<img class="lastQ" src="../css/arrows2.png">
-							<div class="lastQblock">
-								<div class="lastQtext">Last Question</div>
-								<div class="lastBlock"></div>
-							</div>
 						</div>
 
 					</div>
@@ -161,11 +156,6 @@
 							<br>
 							<br>
 
-							<img class="firstQ" src="../css/arrows.png">
-							<div class="firstQblock">
-								<div class="firstQtext">First Question</div>
-								<div class="firstBlock"></div>
-							</div>
 						</div>
 
 						<!--Radio buttons for second survey question-->
@@ -202,11 +192,6 @@
 							</div>
 							<br>
 							<br>
-							<img class="lastQ" src="../css/arrows2.png">
-							<div class="lastQblock">
-								<div class="lastQtext">Last Question</div>
-								<div class="lastBlock"></div>
-							</div>
 						</div>
 
 					</div>
@@ -223,11 +208,6 @@
 							</div>
 							<br>
 							<br>
-							<img class="firstQ" src="../css/arrows.png">
-							<div class="firstQblock">
-								<div class="firstQtext">First Question</div>
-								<div class="firstBlock"></div>
-							</div>
 						</div>
 
 						<!--Radio buttons for third survey question-->
@@ -264,11 +244,6 @@
 							</div>
 							<br>
 							<br>
-							<img class="lastQ" src="../css/arrows2.png">
-							<div class="lastQblock">
-								<div class="lastQtext">Last Question</div>
-								<div class="lastBlock"></div>
-							</div>
 						</div>
 					</div>
 
@@ -284,11 +259,6 @@
 							</div>
 							<br>
 							<br>
-							<img class="firstQ" src="../css/arrows.png">
-							<div class="firstQblock">
-								<div class="firstQtext">First Question</div>
-								<div class="firstBlock"></div>
-							</div>
 						</div>
 
 						<!--Radio buttons for fourth survey question-->
@@ -359,7 +329,9 @@
 
 	      </section>
 	      
-	      <section class="thirdSec">
+	      <section class="thirdSec" name="section3">
+
+	      <img id="stein2" src="../css/stein_bkgd.png">
 
 	      	<!--Input for beer search-->
 
@@ -382,7 +354,7 @@
         
 
 			<img id="stein" src="../css/growler_bkgd.png">
-			<div class="mapTitle">Brewrey Search:</div>
+			<div class="mapTitle">Brewrey Locator:</div>
 			<div class="mapDescription">Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout.</div>
 			<div id="map"></div>
 

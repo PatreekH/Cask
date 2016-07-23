@@ -237,7 +237,7 @@ $(document).ready(function(){
 	});
 
 	$('#exitSurvey').click(function() {
-		if (confirm("Are you sure you want to exit? Exiting the survey will reset your current answers") == true) {
+		if (confirm("Are you sure you want to exit?") == true) {
 			$(".question1").prop('checked', false);
 			$(".question2").prop('checked', false);
 			$(".question3").prop('checked', false);
