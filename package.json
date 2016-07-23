@@ -1,14 +1,20 @@
 {
   "name": "cask",
   "version": "1.0.0",
-  "description": "",
+  "description": "an app for beer",
+  "engines" : {
+    "npm": "4.x"
+  },
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "geocoder": "^0.2.2",
     "path": "^0.12.7",
-    "request": "^2.73.0"
+    "request": "^2.73.0",
+    "express-session": "1.14.0",
+    "express-handlebars": "3.0.0",
+    "mysql": "2.11.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -17,12 +23,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Matt-Owens/Cask.git"
+    "url": "git+https://github.com/Patreek/Cask.git"
   },
-  "author": "",
+  "author": "john tracy, matt owens, pat hernandez, danny leoni",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Matt-Owens/Cask/issues"
+    "url": "https://github.com/Patreek/Cask/issues"
   },
-  "homepage": "https://github.com/Matt-Owens/Cask#readme"
+  "homepage": "https://github.com/Patreek/Cask#readme",
+  "keywords": [
+    "beer"
+  ]
 }
