@@ -41,9 +41,9 @@ $("#submitLocation").on('click', function(){
 			var breweryDescription = breweryData[i].description;
 			var infoContent = 
 								['<div class="info_content">' + 
-								'<h2>' + nameOfBrewery + '</h2>' +
-								'<h3>' + typeOfBrewery + '</h3>' +
-								'<p>' + breweryDescription + '</p></div>'];
+								'<h2 class="brewery-name">' + nameOfBrewery + '</h2>' +
+								'<h3 class="brewery-type">' + typeOfBrewery + '</h3>' +
+								'<p class="brewewry-description">' + breweryDescription + '</p></div>'];
 
 			var newMarker = [nameOfBrewery, markerLat, markerLong];
 			markers.push(newMarker);
@@ -304,15 +304,34 @@ $("#submit").on("click", function(){
 		//Logic for determining beer title, sub-title (style), image, and description.
 		$("#beer-title").text(data[0].name);
 		$("#beer-style").text(data[0].style.name)
-		$("#beer-description").text(data[0].description)
-		$("#beer-image").attr("src", data[0].labels.medium);
+
+
+		if (data[0].description) {
+			$("#beer-description").text(data[0].description)
+		} else {
+			$("#beer-description").text(data[0].style.description)
+		}
+
+
+		if (data[0].labels) {
+			$("#beer-image").attr("src", data[0].labels.medium);
+		} else {
+			$("#beer-image").attr("src", "../css/images/stein_bkgd.png")
+			$("#no-image").text("Sorry! No image of beer found.")
+		}
 
 
 
 		console.log(data)
+		//This is where the error is John
+		var beerName = data[0].name;
+		if(data[0].labels.medium !== undefined){
+			var beerImage = data[0].labels.medium;
+		}
+		else{
+			var beerImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/72928-200.png";
+		}
 
-		var beerName = "budlight";
-		var beerImage = "https://s3.amazonaws.com/brewerydbapi/beer/aKccxT/upload_t4XSiZ-medium.png";
 		if(beerName !== null){
 			surveyPost(beerName, beerImage);
 		}
@@ -339,16 +358,12 @@ $(document).ready(function(){
 		success: function(response){
 			if(response.success == 'success'){
 				$(".welcomeText").html(response.name);
-
-
-				console.log('logged in!!!!!');
-
+				$("#sign-up-link").remove();
 			}
 			else{
 				$(".welcomeText").html("Visitor!");
 				$("#profile-link").remove();
 				$("#logout-link").remove();
-				console.log('not logged in...');
 
 			}
 		}
