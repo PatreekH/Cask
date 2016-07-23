@@ -305,14 +305,23 @@ $("#submit").on("click", function(){
 		$("#beer-title").text(data[0].name);
 		$("#beer-style").text(data[0].style.name)
 		$("#beer-description").text(data[0].description)
-		$("#beer-image").attr("src", data[0].labels.medium);
+
+		if(data[0].labels){
+			$("#beer-image").attr("src", data[0].labels.medium);
+		}
 
 
 
 		console.log(data)
 
-		var beerName = "budlight";
-		var beerImage = "https://s3.amazonaws.com/brewerydbapi/beer/aKccxT/upload_t4XSiZ-medium.png";
+		var beerName = data[0].name;
+		if(data[0].labels.medium !== undefined){
+			var beerImage = data[0].labels.medium;
+		}
+		else{
+			var beerImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/72928-200.png";
+		}
+
 		if(beerName !== null){
 			surveyPost(beerName, beerImage);
 		}
